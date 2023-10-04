@@ -1,0 +1,73 @@
+local colorscheme = require("base").Theme:new({
+  name = "base-everforest-light",
+  background = "light",
+})
+
+colorscheme.theme = {
+  base00 = "#fff9e8",
+  base01 = "#f6f0df",
+  base02 = "#ede7d6",
+  base03 = "#e5dfce",
+  base04 = "#ddd7c6",
+  base05 = "#495157",
+  base06 = "#3b4349",
+  base07 = "#272f35",
+  base08 = "#5f9b93",
+  base09 = "#b67996",
+  base0A = "#8da101",
+  base0B = "#d59600",
+  base0C = "#ef615e",
+  base0D = "#87a060",
+  base0E = "#c85552",
+  base0F = "#c85552",
+}
+
+colorscheme.colors = {
+  bg_1 = "#f0ead9",
+  bg_2 = "#e0dac9",
+  bg_3 = "#d1cbba",
+  bg_4 = "#c2bcab",
+  bg_folder = "#747b6e",
+  bg_light = "#d3cdbc",
+  bg_pmenu = "#5f9b93",
+  bg_statusline = "#ede7d6",
+  black = "#fff9e8",
+  blue = "#3a94c5",
+  cyan = "#89bfdc",
+  dark_black = "#f5efde",
+  dark_purple = "#966986",
+  green = "#5da111",
+  grey = "#b3ad9c",
+  light_green = "#87a060",
+  light_grey_1 = "#a39d8c",
+  light_grey_2 = "#948e7d",
+  light_grey_3 = "#857f6e",
+  light_pink = "#ce8196",
+  line = "#e8e2d1",
+  nord_blue = "#656c5f",
+  orange = "#f7954f",
+  pink = "#ef6590",
+  purple = "#b67996",
+  red = "#c85552",
+  sun = "#d1b171",
+  teal = "#69a59d",
+  white = "#272f35",
+  yellow = "#dfa000",
+}
+
+colorscheme.polish = {
+  ["@constructor"] = { fg = colorscheme.colors.blue },
+  ["@field"] = { fg = colorscheme.theme.base05 },
+  ["@include"] = { fg = colorscheme.colors.bg_pmenu },
+  ["@tag"] = { fg = "#F7954F" },
+  DiffAdd = { fg = colorscheme.colors.green },
+  IndentBlanklineContextStart = { bg = "#F0EAD9" },
+  NvimTreeFolderName = { fg = "#4e565c" },
+  Pmenu = { bg = "#F0EAD9" },
+  St_pos_text = { fg = colorscheme.colors.white },
+  TbLineThemeToggleBtn = { bg = "#E0DAC9" },
+  WhichKey = { fg = colorscheme.colors.white },
+  WhichKeyDesc = { fg = colorscheme.colors.white },
+}
+
+require("base").paint(colorscheme)
