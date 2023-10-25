@@ -5,7 +5,6 @@ local M = {}
 ---@return table<string, NvimColor>
 M.highlights = function(_, colors)
   return {
-    DevIconDefault = { fg = colors.red },
     DevIconc = { fg = colors.blue },
     DevIconcss = { fg = colors.blue },
     DevIcondeb = { fg = colors.cyan },

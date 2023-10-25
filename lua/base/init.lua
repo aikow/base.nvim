@@ -4,13 +4,13 @@ local H = {}
 M.Theme = require("base.theme").Theme
 
 M.integrations = {
-  "blankline",
   "cmp",
   "colors",
   "defaults",
   "devicons",
   "fzf-lua",
   "git",
+  "indent-blankline",
   "lsp",
   "lualine",
   "luasnip",
@@ -18,10 +18,12 @@ M.integrations = {
   "mini",
   "neo-tree",
   "neorg",
+  "semantic",
   "syntax",
   "telescope",
   "terminal",
   "treesitter",
+  "trouble",
 }
 
 ---Get a list of all integration modules in the runtimepath.

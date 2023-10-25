@@ -19,10 +19,7 @@ M.highlights = function(_, colors)
     NvimTreeOpenedFolderName = { fg = colors.bg_folder },
     NvimTreeRootFolder = { fg = colors.red, bold = true },
     NvimTreeSpecialFile = { fg = colors.yellow, bold = true },
-    NvimTreeWinSeparator = {
-      fg = colors.dark_black,
-      bg = colors.dark_black,
-    },
+    NvimTreeWinSeparator = { fg = colors.dark_black, bg = colors.dark_black },
     NvimTreeWindowPicker = { fg = colors.red, bg = colors.bg_1 },
   }
 end

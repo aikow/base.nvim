@@ -21,9 +21,6 @@ M.highlights = function(theme, colors)
     -- Rename UI
     RenamerTitle = { fg = colors.black, bg = colors.red },
     RenamerBorder = { fg = colors.red },
-
-    -- LSP semantic tokens
-    ["@lsp.type.parameter"] = { fg = theme.base08, italic = true },
   }
 end
 
