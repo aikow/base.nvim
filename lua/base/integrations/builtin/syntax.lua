@@ -1,8 +1,8 @@
 local M = {}
 
 ---comment
----@param theme ThemeBase
----@return table<string, NvimColor>
+---@param theme Base46ThemePalette
+---@return table<string, Base46Color>
 M.highlights = function(theme)
   -- Standard syntax highlighting
 

@@ -1,4 +1,4 @@
-local colorscheme = require("base").Theme:new({
+local colorscheme = require("base.theme").Theme({
   name = "base-sweetpastel",
   background = "dark",
 })
@@ -55,4 +55,4 @@ colorscheme.colors = {
   yellow = "#ece3b1",
 }
 
-require("base").paint(colorscheme)
+colorscheme:paint()

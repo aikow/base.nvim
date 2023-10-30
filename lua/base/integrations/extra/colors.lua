@@ -2,8 +2,8 @@ local M = {}
 local U = require("base.util")
 
 ---comment
----@param colors ThemeColors
----@return table<string, NvimColor>
+---@param colors Base46ThemeColors
+---@return table<string, Base46Color>
 M.highlights = function(_, colors)
   local palette = {}
   for name, hex in pairs(colors) do

@@ -1,4 +1,4 @@
-local colorscheme = require("base").Theme:new({
+local colorscheme = require("base.theme").Theme({
   name = "base-everforest-light",
   background = "light",
 })
@@ -70,4 +70,4 @@ colorscheme.polish = {
   WhichKeyDesc = { fg = colorscheme.colors.white },
 }
 
-require("base").paint(colorscheme)
+colorscheme:paint()

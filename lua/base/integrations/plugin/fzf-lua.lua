@@ -1,9 +1,10 @@
 local M = {}
 
 ---comment
----@param colors ThemeColors
----@return table<string, NvimColor>
-M.highlights = function(_, colors)
+---@param theme Base46ThemePalette
+---@param colors Base46ThemeColors
+---@return table<string, Base46Color>
+M.highlights = function(theme, colors)
   return {
     FzfLuaNormal = { bg = colors.dark_black },
     FzfLuaBorder = { fg = colors.dark_black, bg = colors.dark_black },

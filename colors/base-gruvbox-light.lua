@@ -1,4 +1,4 @@
-local colorscheme = require("base").Theme:new({
+local colorscheme = require("base.theme").Theme({
   name = "base-gruvbox-light",
   background = "light",
 })
@@ -59,4 +59,4 @@ colorscheme.polish = {
   TbLineThemeToggleBtn = { fg = "#F2E5BC", bg = colorscheme.colors.white },
 }
 
-require("base").paint(colorscheme)
+colorscheme:paint()

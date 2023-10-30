@@ -1,9 +1,9 @@
 local M = {}
 
 ---comment
----@param theme ThemeBase
----@param colors ThemeColors
----@return table<string, NvimColor>
+---@param theme Base46ThemePalette
+---@param colors Base46ThemeColors
+---@return table<string, Base46Color>
 M.highlights = function(theme, colors)
   return {
     -- nvim cmp

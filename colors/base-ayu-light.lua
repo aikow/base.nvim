@@ -1,4 +1,4 @@
-local colorscheme = require("base").Theme:new({
+local colorscheme = require("base.theme").Theme({
   name = "base-ayu-light",
   background = "light",
 })
@@ -64,4 +64,4 @@ colorscheme.polish = {
   luaTSField = { fg = "#FA8D3E" },
 }
 
-require("base").paint(colorscheme)
+colorscheme:paint()

@@ -1,4 +1,4 @@
-local colorscheme = require("base").Theme:new({
+local colorscheme = require("base.theme").Theme({
   name = "base-everforest",
   background = "dark",
 })
@@ -60,4 +60,4 @@ colorscheme.polish = {
   ["@tag.delimiter"] = { fg = colorscheme.colors.green },
 }
 
-require("base").paint(colorscheme)
+colorscheme:paint()

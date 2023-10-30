@@ -1,9 +1,9 @@
 local M = {}
 
 ---comment
----@param theme ThemeBase
----@param colors ThemeColors
----@return table<string, NvimColor>
+---@param theme Base46ThemePalette
+---@param colors Base46ThemeColors
+---@return table<string, Base46Color>
 M.highlights = function(theme, colors)
   return {
     ["@lsp.type.class"] = { link = "Structure" },
@@ -24,8 +24,6 @@ M.highlights = function(theme, colors)
     ["@event"] = { fg = theme.base08 },
     ["@modifier"] = { fg = theme.base08 },
     ["@regexp"] = { fg = theme.base0F },
-
-    -- LSP semantic tokens
   }
 end
 

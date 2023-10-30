@@ -1,4 +1,4 @@
-local colorscheme = require("base").Theme:new({
+local colorscheme = require("base.theme").Theme({
   name = "base-bearded-arc",
   background = "dark",
 })
@@ -64,4 +64,4 @@ colorscheme.polish = {
   Include = { fg = "#EACD61" },
 }
 
-require("base").paint(colorscheme)
+colorscheme:paint()

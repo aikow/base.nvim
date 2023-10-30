@@ -1,4 +1,4 @@
-local colorscheme = require("base").Theme:new({
+local colorscheme = require("base.theme").Theme({
   name = "base-nightowl",
   background = "dark",
 })
@@ -62,4 +62,4 @@ colorscheme.polish = {
   PmenuSel = { bg = colorscheme.colors.bg_pmenu },
 }
 
-require("base").paint(colorscheme)
+colorscheme:paint()

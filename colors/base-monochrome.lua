@@ -1,4 +1,4 @@
-local colorscheme = require("base").Theme:new({
+local colorscheme = require("base.theme").Theme({
   name = "base-monochrome",
   background = "dark",
 })
@@ -59,4 +59,4 @@ colorscheme.polish = {
   ["@punctuation.bracket"] = { fg = colorscheme.colors.red },
 }
 
-require("base").paint(colorscheme)
+colorscheme:paint()

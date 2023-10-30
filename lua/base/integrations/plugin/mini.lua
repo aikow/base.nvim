@@ -1,18 +1,25 @@
 local M = {}
 
 ---comment
----@param colors ThemeColors
----@return table<string, NvimColor>
+---@param colors Base46ThemeColors
+---@return table<string, Base46Color>
 M.highlights = function(_, colors)
   return {
     -- mini.files
-    MiniFilesBorder = { fg = colors.grey, bg = colors.dark_black },
+    MiniFilesBorder = { bg = colors.dark_black, fg = colors.grey },
     MiniFilesBorderModified = { fg = colors.yellow },
     MiniFilesDirectory = { fg = colors.bg_folder },
     MiniFilesFile = { fg = colors.white },
     MiniFilesNormal = { bg = colors.dark_black },
     MiniFilesTitle = { fg = colors.blue },
     MiniFilesTitleFocused = { fg = colors.blue, italic = true },
+
+    -- mini.hipatterns
+    MiniHipatternsFixme = { bg = colors.red, fg = colors.black, bold = true },
+    MiniHipatternsHack = { bg = colors.yellow, fg = colors.black, bold = true },
+    MiniHipatternsTodo = { bg = colors.blue, fg = colors.black, bold = true },
+    MiniHipatternsNote = { bg = colors.purple, fg = colors.black, bold = true },
+    MiniHipatternsPerf = { bg = colors.orange, fg = colors.black, bold = true },
 
     -- mini.starter
     MiniStarterCurrent = {},

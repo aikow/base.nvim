@@ -1,4 +1,4 @@
-local colorscheme = require("base").Theme:new({
+local colorscheme = require("base.theme").Theme({
   name = "base-penumbra-dark",
   background = "dark",
 })
@@ -66,4 +66,4 @@ colorscheme.polish = {
   Operator = { fg = "#00B3C2" },
 }
 
-require("base").paint(colorscheme)
+colorscheme:paint()

@@ -1,4 +1,4 @@
-local colorscheme = require("base").Theme:new({
+local colorscheme = require("base.theme").Theme({
   name = "base-vscode-dark",
   background = "dark",
 })
@@ -68,4 +68,4 @@ colorscheme.polish = {
   ["@variable"] = { fg = "#9CDCFE" },
 }
 
-require("base").paint(colorscheme)
+colorscheme:paint()

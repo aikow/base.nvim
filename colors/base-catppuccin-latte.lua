@@ -1,4 +1,4 @@
-local colorscheme = require("base").Theme:new({
+local colorscheme = require("base.theme").Theme({
   name = "base-catppuccin-latte",
   background = "light",
 })
@@ -100,4 +100,4 @@ colorscheme.polish = {
   TSProperty = { fg = colorscheme.colors.teal },
 }
 
-require("base").paint(colorscheme)
+colorscheme:paint()

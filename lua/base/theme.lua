@@ -1,8 +1,12 @@
 local M = {}
 
----@alias NvimBackground "light" | "dark"
+---@alias Base46Background "light" | "dark"
 
----@class (exact) NvimColor
+-- ------------------------------------------------------------------------
+-- | Base46Color
+-- ------------------------------------------------------------------------
+
+---@class (exact) Base46Color
 ---@field fg string?
 ---@field bg string?
 ---@field sp string?
@@ -11,22 +15,28 @@ local M = {}
 ---@field underline boolean?
 ---@field strikethrough boolean?
 ---@field undercurl boolean?
-M.NvimColor = {}
+M.Color = {}
 
 ---comment
----@param o table
+---@param color table
 ---@return any
-function M.NvimColor:new(o)
-  o = o or {}
-  return setmetatable(o, {
+function M.Color:new(color)
+  vim.validate({ color = { color, "table" } })
+
+  return setmetatable(color, {
     __index = self,
-    -- __newindex = function()
-    --   error("attempt to update missing fields", 2)
-    -- end,
   })
 end
 
----@class (exact) ThemeBase
+setmetatable(M.Color, {
+  __call = M.Color.new,
+})
+
+-- ------------------------------------------------------------------------
+-- | Base46ThemePalette
+-- ------------------------------------------------------------------------
+
+---@class (exact) Base46ThemePalette
 ---@field base00 string -- Default background color
 ---@field base01 string -- Lighter background color (status bars, line numbers, folding marks)
 ---@field base02 string -- Selection background
@@ -43,22 +53,28 @@ end
 ---@field base0D string -- Functions, methods, attribute IDs, headings
 ---@field base0E string -- Keywords, storage, selector, markup italic, diff changed
 ---@field base0F string -- Deprecated, opening and closing embedded language tags
-M.ThemeBase = {}
+M.ThemePalette = {}
 
 ---comment
----@param o ThemeBase
+---@param palette Base46ThemePalette
 ---@return any
-function M.ThemeBase:new(o)
-  o = o or {}
-  return setmetatable(o, {
+function M.ThemePalette:new(palette)
+  vim.validate({ palette = { palette, "table" } })
+
+  return setmetatable(palette, {
     __index = self,
-    -- __newindex = function()
-    --   error("attempt to update missing fields", 2)
-    -- end,
   })
 end
 
----@class (exact) ThemeColors
+setmetatable(M.ThemePalette, {
+  __call = M.ThemePalette.new,
+})
+
+-- ------------------------------------------------------------------------
+-- | Base46ThemeColors
+-- ------------------------------------------------------------------------
+
+---@class (exact) Base46ThemeColors
 ---@field white string
 ---@field black string -- Nvim theme background color
 ---@field dark_black string -- 6% darker than black
@@ -92,42 +108,55 @@ end
 M.ThemeColors = {}
 
 ---comment
----@param o ThemeColors
+---@param colors Base46ThemeColors
 ---@return any
-function M.ThemeColors:new(o)
-  o = o or {}
-  return setmetatable(o, {
+function M.ThemeColors:new(colors)
+  vim.validate({ colors = { colors, "table" } })
+
+  return setmetatable(colors, {
     __index = self,
-    -- __newindex = function()
-    --   error("attempt to update missing fields", 2)
-    -- end,
   })
 end
 
+setmetatable(M.ThemeColors, {
+  __call = M.ThemeColors.new,
+})
+
+-- ------------------------------------------------------------------------
+-- | Base46Theme
+-- ------------------------------------------------------------------------
+
 -- A color scheme object defines some basic properties that are then used to
 ---create all the other highlight groups.
----@class (exact) Theme
+---@class (exact) Base46Theme
 ---@field name string The name of the color scheme which should match the file name.
----@field background NvimBackground The background color, either 'light' or 'dark'
----@field theme ThemeBase The base16 theme.
----@field colors ThemeColors The extended colors.
+---@field background Base46Background The background color, either 'light' or 'dark'
+---@field theme Base46ThemePalette The base16 theme.
+---@field colors Base46ThemeColors The extended colors.
 ---@field extra table<string, string> Any extra colors that are only specific to this theme.
----@field polish table<string, NvimColor> Overrides for the default generated highlight groups.
+---@field polish table<string, Base46Color> Overrides for the default generated highlight groups.
 M.Theme = {}
 
 ---comment
----@param o { name: string, background: NvimBackground }
----@return Theme
-function M.Theme:new(o)
-  o = o or {}
+---@param theme { name: string, background: Base46Background }
+---@return Base46Theme
+function M.Theme:new(theme)
+  vim.validate({ theme = { theme, "table" } })
+  vim.validate({
+    name = { theme.name, "string" },
+    background = { theme.background, "string" },
+  })
 
-  return setmetatable({
-    name = o.name or "",
-    background = o.background or "",
-    -- theme = o.theme,
-    -- colors = o.colors,
-    -- polish = o.polish or {},
-  }, { __index = self })
+  return setmetatable(theme, { __index = self })
 end
+
+---Apply the current theme.
+function M.Theme:paint()
+  require("base").paint(self)
+end
+
+setmetatable(M.Theme, {
+  __call = M.Theme.new,
+})
 
 return M

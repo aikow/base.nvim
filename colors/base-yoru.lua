@@ -1,4 +1,4 @@
-local colorscheme = require("base").Theme:new({
+local colorscheme = require("base.theme").Theme({
   name = "base-yoru",
   background = "dark",
 })
@@ -59,4 +59,4 @@ colorscheme.extra = {
   lighter_black = "#121415",
 }
 
-require("base").paint(colorscheme)
+colorscheme:paint()

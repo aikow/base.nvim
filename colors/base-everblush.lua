@@ -1,4 +1,4 @@
-local colorscheme = require("base").Theme:new({
+local colorscheme = require("base.theme").Theme({
   name = "base-everblush",
   background = "dark",
 })
@@ -59,4 +59,4 @@ colorscheme.extra = {
   lightbg2 = "#1f2629",
 }
 
-require("base").paint(colorscheme)
+colorscheme:paint()

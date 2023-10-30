@@ -1,4 +1,4 @@
-local colorscheme = require("base").Theme:new({
+local colorscheme = require("base.theme").Theme({
   name = "base-gruvbox",
   background = "dark",
 })
@@ -60,4 +60,4 @@ colorscheme.polish = {
   Operator = { fg = colorscheme.colors.nord_blue },
 }
 
-require("base").paint(colorscheme)
+colorscheme:paint()

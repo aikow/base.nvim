@@ -1,9 +1,9 @@
 local M = {}
 
 ---comment
----@param theme ThemeBase
----@param colors ThemeColors
----@return table<string, NvimColor>
+---@param theme Base46ThemePalette
+---@param colors Base46ThemeColors
+---@return table<string, Base46Color>
 M.highlights = function(theme, colors)
   return {
     -- LSP References
@@ -11,16 +11,14 @@ M.highlights = function(theme, colors)
     LspReferenceRead = { fg = colors.dark_black, bg = colors.white },
     LspReferenceWrite = { fg = colors.dark_black, bg = colors.white },
 
+    -- LSP method signature
+    LspSignatureActiveParameter = { fg = colors.black, bg = colors.green },
+
     -- Lsp Diagnostics
     DiagnosticHint = { fg = colors.purple },
     DiagnosticError = { fg = colors.red },
     DiagnosticWarn = { fg = colors.yellow },
-    DiagnosticInformation = { fg = colors.green },
-    LspSignatureActiveParameter = { fg = colors.black, bg = colors.green },
-
-    -- Rename UI
-    RenamerTitle = { fg = colors.black, bg = colors.red },
-    RenamerBorder = { fg = colors.red },
+    DiagnosticInfo = { fg = colors.green },
   }
 end
 

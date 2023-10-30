@@ -1,4 +1,4 @@
-local colorscheme = require("base").Theme:new({
+local colorscheme = require("base.theme").Theme({
   name = "base-material-darker",
   background = "dark",
 })
@@ -167,4 +167,4 @@ colorscheme.polish = {
   TelescopeMatching = { fg = colors.editor.accent },
 }
 
-require("base").paint(colorscheme)
+colorscheme:paint()

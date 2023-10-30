@@ -1,4 +1,4 @@
-local colorscheme = require("base").Theme:new({
+local colorscheme = require("base.theme").Theme({
   name = "base-tundra",
   background = "dark",
 })
@@ -68,4 +68,4 @@ colorscheme.polish = {
   Type = { fg = "#FECDD3" },
 }
 
-require("base").paint(colorscheme)
+colorscheme:paint()

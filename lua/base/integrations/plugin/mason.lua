@@ -1,8 +1,8 @@
 local M = {}
 
 ---comment
----@param colors ThemeColors
----@return table<string, NvimColor>
+---@param colors Base46ThemeColors
+---@return table<string, Base46Color>
 M.highlights = function(_, colors)
   return {
     MasonHeader = { bg = colors.red, fg = colors.black },

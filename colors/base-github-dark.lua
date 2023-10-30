@@ -1,4 +1,4 @@
-local colorscheme = require("base").Theme:new({
+local colorscheme = require("base.theme").Theme({
   name = "base-github-dark",
   background = "dark",
 })
@@ -63,4 +63,4 @@ colorscheme.polish = {
   ["@tag.attribute"] = { link = "@method" },
 }
 
-require("base").paint(colorscheme)
+colorscheme:paint()

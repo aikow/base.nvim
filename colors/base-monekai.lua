@@ -1,4 +1,4 @@
-local colorscheme = require("base").Theme:new({
+local colorscheme = require("base.theme").Theme({
   name = "base-monekai",
   background = "dark",
 })
@@ -65,4 +65,4 @@ colorscheme.polish = {
   parameter = { fg = colorscheme.colors.blue },
 }
 
-require("base").paint(colorscheme)
+colorscheme:paint()

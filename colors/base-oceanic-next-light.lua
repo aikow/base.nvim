@@ -1,4 +1,4 @@
-local colorscheme = require("base").Theme:new({
+local colorscheme = require("base.theme").Theme({
   name = "base-oceanic-next-light",
   background = "light",
 })
@@ -63,4 +63,4 @@ colorscheme.polish = {
   St_VisualModeSep = { fg = colorscheme.colors.teal },
 }
 
-require("base").paint(colorscheme)
+colorscheme:paint()

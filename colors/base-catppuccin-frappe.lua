@@ -1,4 +1,4 @@
-local colorscheme = require("base").Theme:new({
+local colorscheme = require("base.theme").Theme({
   name = "base-catppuccin-frappe",
   background = "dark",
 })
@@ -94,4 +94,4 @@ colorscheme.polish = {
   TSVariableBuiltin = { fg = colorscheme.colors.red },
 }
 
-require("base").paint(colorscheme)
+colorscheme:paint()

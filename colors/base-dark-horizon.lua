@@ -1,4 +1,4 @@
-local colorscheme = require("base").Theme:new({
+local colorscheme = require("base.theme").Theme({
   name = "base-dark-horizon",
   background = "dark",
 })
@@ -67,4 +67,4 @@ colorscheme.polish = {
   Include = { fg = "#6BE4E6", bold = true },
 }
 
-require("base").paint(colorscheme)
+colorscheme:paint()
