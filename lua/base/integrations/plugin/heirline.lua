@@ -21,15 +21,17 @@ M.after = function(theme, colors)
   if not ok_heirline then
     return
   end
+  heirline.reset_highlights()
   heirline.load_colors({
     bright_bg = colors.bg_statusline,
     bright_fg = colors.light_grey_1,
-    red = colors.orange,
-    dark_red = colors.red,
+    pink = colors.pink,
+    red = theme.base0F,
     green = colors.green,
     blue = colors.blue,
-    gray = colors.grey,
+    grey = colors.grey,
     orange = colors.orange,
+    teal = colors.teal,
     purple = colors.purple,
     cyan = colors.cyan,
     diag_warn = colors.yellow,
