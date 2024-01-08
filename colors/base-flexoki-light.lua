@@ -1,0 +1,73 @@
+local colorscheme = require("base.theme").Theme({
+  name = "base-flexoki-light",
+  background = "light",
+})
+
+colorscheme.theme = {
+  base00 = "#fffcf0",
+  base01 = "#f2efe4",
+  base02 = "#ebe8dd",
+  base03 = "#b8b5ad",
+  base04 = "#adaba3",
+  base05 = "#2a2929",
+  base06 = "#b6bdca",
+  base07 = "#c8ccd4",
+  base08 = "#d14d41",
+  base09 = "#da702c",
+  base0A = "#8b7ec8",
+  base0B = "#879a39",
+  base0C = "#3aa99f",
+  base0D = "#4385be",
+  base0E = "#d0a215",
+  base0F = "#008080",
+}
+
+colorscheme.colors = {
+  bg_1 = "#f2efe4",
+  bg_2 = "#ebe8dd",
+  bg_3 = "#d6d4ca",
+  bg_4 = "#c7c5bb",
+  bg_folder = "#4385be",
+  bg_light = "#ebe8dd",
+  bg_pmenu = "#3aa99f",
+  bg_statusline = "#f7f4e9",
+  black = "#fffcf0",
+  blue = "#4385be",
+  cyan = "#3aa99f",
+  dark_black = "#f7f4e9",
+  dark_purple = "#8376bc",
+  green = "#879a39",
+  grey = "#b8b5ad",
+  light_green = "#66800b",
+  light_grey_1 = "#adaba3",
+  light_grey_2 = "#a3a19a",
+  light_grey_3 = "#94928b",
+  light_pink = "#d574a6",
+  line = "#d6d4ca",
+  nord_blue = "#4385be",
+  orange = "#da702c",
+  pink = "#ce5d97",
+  purple = "#8b7ec8",
+  red = "#d14d41",
+  sun = "#d2a721",
+  teal = "#008080",
+  white = "#2a2929",
+  yellow = "#d0a215",
+}
+
+colorscheme.polish = {
+  ["@constant.lua"] = { fg = colorscheme.colors.white },
+  ["@keyword"] = { fg = "#3AA99F" },
+  ["@parameter"] = { fg = colorscheme.colors.light_pink },
+  ["@punctuation.bracket"] = { fg = "#D0A215" },
+  ["@string"] = { fg = "#879A39" },
+  ["@tag"] = { fg = "#4385BE" },
+  ["@tag.attribute"] = { fg = "#DA702C" },
+  ["@text.uri"] = { fg = "#879A39" },
+  Include = { fg = "#D0A215" },
+  Keyword = { fg = "#3AA99F" },
+  Tag = { fg = "#4385BE" },
+  TelescopeMatching = { fg = colorscheme.colors.dark_purple, bg = colorscheme.colors.bg_light },
+}
+
+colorscheme:paint()

@@ -8,6 +8,14 @@ package.loaded.base46 = {
   end,
 }
 
+package.loaded.nvconfig = {
+  ui = {
+    statusline = {
+      theme = "vscode_colored",
+    },
+  },
+}
+
 -- Map of color renames from base46 to my local config.
 local color_map = {
   baby_pink = "light_pink",
@@ -50,18 +58,40 @@ local name_map = {
   gruvchad = "gruv",
 }
 
+--
+local ignore_integrations = {
+  "statusline",
+  "tbline",
+}
+
+-- List of patterns of highlight groups to ignore.
+local ignore_hl = {
+  "^St_",
+  "^TbLine",
+}
+
+local function contains(t, needle)
+  for _, item in pairs(t) do
+    if item == needle then
+      return true
+    end
+  end
+
+  return false
+end
+
 ---comment
 ---@param t table table with sortable keys.
 ---@param f function? An optional comparator function.
 ---@return function iterator
-local sorted = function(t, f)
+local function sorted(t, f)
   local a = {}
   for n in pairs(t) do
     table.insert(a, n)
   end
   table.sort(a, f)
 
-  local i = 0             -- iterator variable
+  local i = 0 -- iterator variable
 
   local iter = function() -- iterator function
     i = i + 1
@@ -74,13 +104,28 @@ local sorted = function(t, f)
   return iter
 end
 
+local function inspect(o)
+  if type(o) == "table" then
+    local s = "{ "
+    for k, v in pairs(o) do
+      if type(k) ~= "number" then
+        k = '"' .. k .. '"'
+      end
+      s = s .. "[" .. k .. "] = " .. inspect(v) .. ","
+    end
+    return s .. "} "
+  else
+    return tostring(o)
+  end
+end
+
 ---Search for a color in the 3 color tables associated with a colorscheme. The
 ---order the tables are searched in is first the base 30 colors, then the extra
 ---colors, and finally the base_16 colors.
----@param module { base_16: ThemeBase, base_30: ThemeColors, extra: table<string, string>}
+---@param module { base_16: Base46ThemePalette, base_30: Base46ThemeColors, extra: table<string, string>}
 ---@param color string | boolean the value of the attribute on the Color
 ---@return string representation of the link as a string of lua code
-local lookup_color = function(module, color)
+local function lookup_color(module, color)
   if type(color) == "boolean" then
     return color and "true" or "false"
   end
@@ -108,16 +153,16 @@ end
 
 ---comment
 ---@param name string
-local clean_name = function(name)
+local function clean_name(name)
   name = name_map[name] or name
-  return name:gsub("([a-z])([A-Z])", "%1-%2"):gsub("_", "-"):lower()
+  return "base-" .. name:gsub("([a-z])([A-Z])", "%1-%2"):gsub("_", "-"):lower()
 end
 
 ---Load the lua file as a base46 theme module and convert it into the format
 ---expected by my own theme module.
 ---@param filename string
 ---@return table
-local read_module = function(filename)
+local function read_module(filename)
   local chunk = loadfile(filename, "t", _ENV)
   if chunk == nil then
     error(string.format("Unable to find a file at %s", filename), 2)
@@ -126,10 +171,7 @@ local read_module = function(filename)
   local module = chunk()
   if type(module) ~= "table" then
     error(
-      string.format(
-        "File did not return a module as was expected. Found %s instead",
-        type(module)
-      ),
+      string.format("File did not return a module as was expected. Found %s instead", type(module)),
       2
     )
   end
@@ -164,12 +206,16 @@ local read_module = function(filename)
   -- Extract any polish highlight groups. We directly search through the base 16
   -- and base 30 colors to determine which value is being referenced.
   result.polish = {}
-  for hl_group, color in pairs(module.polish_hl or {}) do
-    local new_color = {}
-    for attr, value in pairs(color) do
-      new_color[attr] = lookup_color(result, value)
+  for integration_name, integration_highlights in pairs(module.polish_hl or {}) do
+    if not contains(ignore_integrations, integration_name) then
+      for hl_group, color in pairs(integration_highlights) do
+        local new_color = {}
+        for attr, value in pairs(color) do
+          new_color[attr] = lookup_color(result, value)
+        end
+        result.polish[hl_group] = new_color
+      end
     end
-    result.polish[hl_group] = new_color
   end
 
   return result
@@ -178,7 +224,7 @@ end
 ---comment Convert the color table into a file containing lua code
 ---@param dirpath string
 ---@param theme table
-local dump_module = function(dirpath, theme)
+local function dump_module(dirpath, theme)
   local filepath = ("%s/%s.lua"):format(dirpath, theme.name)
   print(string.format("writing colorscheme to %s", filepath))
 
@@ -190,7 +236,7 @@ local dump_module = function(dirpath, theme)
   -- Create Colorscheme instance
   file:write(
     string.format(
-      'local colorscheme = require("user.ui.theme").Theme:new({\n  name = "%s",\n  background = "%s",\n})',
+      'local colorscheme = require("base.theme").Theme({\n  name = "%s",\n  background = "%s",\n})',
       theme.name,
       theme.background
     ),
@@ -214,7 +260,7 @@ local dump_module = function(dirpath, theme)
   file:write("}\n\n")
 
   -- Define the any extra colors.
-  if #theme.extra > 1 then
+  if next(theme.extra) ~= nil then
     file:write("colorscheme.extra = {\n")
     for key, value in sorted(theme.extra) do
       file:write(string.format([[  %s = "%s",]], key, value), "\n")
@@ -224,7 +270,7 @@ local dump_module = function(dirpath, theme)
 
   -- Add any polish highlight groups. Each extra polish group is in its own
   -- separate line.
-  if #theme.polish > 1 then
+  if next(theme.polish) ~= nil then
     file:write("colorscheme.polish = {\n")
     for hl_group, color in sorted(theme.polish) do
       -- We check to see if the highlight group is a valid lua variable name.
@@ -246,7 +292,7 @@ local dump_module = function(dirpath, theme)
   end
 
   -- Add method call to paint the colorscheme.
-  file:write([[require("user.ui.theme").paint(colorscheme)]], "\n")
+  file:write("colorscheme:paint()\n")
 
   -- Flush and close the file.
   file:flush()

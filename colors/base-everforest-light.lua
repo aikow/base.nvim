@@ -61,11 +61,8 @@ colorscheme.polish = {
   ["@include"] = { fg = colorscheme.colors.bg_pmenu },
   ["@tag"] = { fg = "#F7954F" },
   DiffAdd = { fg = colorscheme.colors.green },
-  IndentBlanklineContextStart = { bg = "#F0EAD9" },
   NvimTreeFolderName = { fg = "#4e565c" },
   Pmenu = { bg = "#F0EAD9" },
-  St_pos_text = { fg = colorscheme.colors.white },
-  TbLineThemeToggleBtn = { bg = "#E0DAC9" },
   WhichKey = { fg = colorscheme.colors.white },
   WhichKeyDesc = { fg = colorscheme.colors.white },
 }

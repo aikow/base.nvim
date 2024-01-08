@@ -1,0 +1,71 @@
+local colorscheme = require("base.theme").Theme({
+  name = "base-flexoki",
+  background = "dark",
+})
+
+colorscheme.theme = {
+  base00 = "#100f0f",
+  base01 = "#1c1b1b",
+  base02 = "#292626",
+  base03 = "#393636",
+  base04 = "#555050",
+  base05 = "#cecdc3",
+  base06 = "#b6bdca",
+  base07 = "#c8ccd4",
+  base08 = "#af3029",
+  base09 = "#bc5215",
+  base0A = "#8265c0",
+  base0B = "#66800b",
+  base0C = "#268b83",
+  base0D = "#4385be",
+  base0E = "#ad8301",
+  base0F = "#519aba",
+}
+
+colorscheme.colors = {
+  bg_1 = "#1c1b1b",
+  bg_2 = "#292626",
+  bg_3 = "#353232",
+  bg_4 = "#373434",
+  bg_folder = "#4385be",
+  bg_light = "#292626",
+  bg_pmenu = "#268b83",
+  bg_statusline = "#171616",
+  black = "#100f0f",
+  blue = "#4385be",
+  cyan = "#268b83",
+  dark_black = "#171616",
+  dark_purple = "#5e409d",
+  green = "#66800b",
+  grey = "#393636",
+  light_green = "#7e9f0e",
+  light_grey_1 = "#555050",
+  light_grey_2 = "#5f5959",
+  light_grey_3 = "#6a6363",
+  light_pink = "#b0347a",
+  line = "#292626",
+  nord_blue = "#4385be",
+  orange = "#bc5215",
+  pink = "#a02f6f",
+  purple = "#8265c0",
+  red = "#af3029",
+  sun = "#e2ab01",
+  teal = "#519aba",
+  white = "#cecdc3",
+  yellow = "#ad8301",
+}
+
+colorscheme.polish = {
+  ["@keyword"] = { fg = colorscheme.colors.bg_pmenu },
+  ["@parameter"] = { fg = colorscheme.colors.light_pink },
+  ["@punctuation.bracket"] = { fg = "#AD8301" },
+  ["@string"] = { fg = "#66800B" },
+  ["@tag"] = { fg = "#4385BE" },
+  ["@tag.attribute"] = { fg = "#BC5215" },
+  ["@text.uri"] = { fg = "#66800B" },
+  Include = { fg = "#AD8301" },
+  Keyword = { fg = colorscheme.colors.bg_pmenu },
+  Tag = { fg = "#4385BE" },
+}
+
+colorscheme:paint()

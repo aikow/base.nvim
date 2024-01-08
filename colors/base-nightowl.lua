@@ -59,7 +59,6 @@ colorscheme.polish = {
   ["@conditional"] = { fg = colorscheme.colors.cyan },
   ["@keyword.return"] = { fg = colorscheme.colors.cyan },
   ["@parameter"] = { fg = "#FFAD60" },
-  PmenuSel = { bg = colorscheme.colors.bg_pmenu },
 }
 
 colorscheme:paint()

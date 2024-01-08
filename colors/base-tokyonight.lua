@@ -57,7 +57,7 @@ colorscheme.colors = {
 
 colorscheme.polish = {
   ["@constant"] = { fg = colorscheme.colors.orange },
-  ["@function.call"] = { fg = colorscheme.colors.bg_pmenu },
+  ["@function.call"] = { fg = colorscheme.colors.blue },
   ["@method.call"] = { fg = colorscheme.colors.red },
   ["@parameter"] = { fg = colorscheme.colors.orange },
   ["@punctuation.bracket"] = { fg = colorscheme.colors.purple },

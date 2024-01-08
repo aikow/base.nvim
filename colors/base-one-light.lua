@@ -13,7 +13,7 @@ colorscheme.theme = {
   base06 = "#202227",
   base07 = "#090a0b",
   base08 = "#d84a3d",
-  base09 = "#a626a4",
+  base09 = "#d75f00",
   base0A = "#c18401",
   base0B = "#50a14f",
   base0C = "#0070a8",
@@ -60,13 +60,8 @@ colorscheme.polish = {
   DiffAdd = { fg = colorscheme.theme.base05 },
   FloatBorder = { fg = colorscheme.theme.base05 },
   Pmenu = { bg = "#EAEAEB" },
-  St_pos_text = { fg = colorscheme.colors.white },
-  TbLineThemeToggleBtn = { bg = colorscheme.colors.bg_4 },
   TelescopePromptPrefix = { fg = colorscheme.colors.white },
-  TelescopeSelection = {
-    bg = colorscheme.colors.bg_2,
-    fg = colorscheme.colors.white,
-  },
+  TelescopeSelection = { bg = colorscheme.colors.bg_2, fg = colorscheme.colors.white },
   WhichKeyDesc = { fg = colorscheme.colors.white },
 }
 

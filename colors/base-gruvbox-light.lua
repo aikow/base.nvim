@@ -55,8 +55,4 @@ colorscheme.colors = {
   yellow = "#d79921",
 }
 
-colorscheme.polish = {
-  TbLineThemeToggleBtn = { fg = "#F2E5BC", bg = colorscheme.colors.white },
-}
-
 colorscheme:paint()

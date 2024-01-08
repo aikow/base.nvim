@@ -56,7 +56,7 @@ colorscheme.colors = {
 }
 
 colorscheme.polish = {
-  ["@constructor"] = { fg = colorscheme.colors.light_green, bold = true },
+  ["@constructor"] = { fg = colorscheme.colors.light_green },
   ["@field.key"] = { fg = colorscheme.colors.white },
   ["@punctuation.bracket"] = { fg = colorscheme.colors.orange },
   ["@string"] = { fg = colorscheme.colors.white },

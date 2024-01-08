@@ -56,7 +56,7 @@ colorscheme.colors = {
 }
 
 colorscheme.polish = {
-  ["@field"] = { fg = colorscheme.colors.bg_folder },
+  ["@field"] = { fg = colorscheme.colors.blue },
   ["@punctuation.bracket"] = { fg = "#ECBE7B" },
 }
 

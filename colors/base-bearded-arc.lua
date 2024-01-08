@@ -19,7 +19,7 @@ colorscheme.theme = {
   base0C = "#77aed7",
   base0D = "#69c3ff",
   base0E = "#22ecdb",
-  base0F = "#ff738a",
+  base0F = "#b78aff",
 }
 
 colorscheme.colors = {
@@ -34,7 +34,7 @@ colorscheme.colors = {
   black = "#1c2433",
   blue = "#69c3ff",
   cyan = "#22ecdb",
-  dark_black = "#151d2c",
+  dark_black = "#19212e",
   dark_purple = "#b78aff",
   green = "#3cec85",
   grey = "#444c5b",
@@ -47,7 +47,7 @@ colorscheme.colors = {
   nord_blue = "#6da4cd",
   orange = "#ff955c",
   pink = "#ee9cdd",
-  purple = "#b788e5",
+  purple = "#bd93ff",
   red = "#ff738a",
   sun = "#f6d96d",
   teal = "#12c7c4",
@@ -56,12 +56,8 @@ colorscheme.colors = {
 }
 
 colorscheme.polish = {
-  ["@constructor"] = {},
-  ["@keyword.return"] = { fg = "#EACD61" },
+  ["@attribute"] = { fg = colorscheme.colors.purple },
   ["@parameter"] = { fg = colorscheme.colors.pink },
-  ["@punctuation.bracket"] = { fg = "#B78AFF" },
-  Conditional = { fg = "#EACD61" },
-  Include = { fg = "#EACD61" },
 }
 
 colorscheme:paint()
