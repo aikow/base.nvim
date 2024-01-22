@@ -2,10 +2,10 @@ local Base46 = {}
 local H = {}
 
 ---@class Base46Config
----@field integrations string[] | nil List of integrations to load.
+---@variable.member integrations string[] | nil List of integrations to load.
 
 ---@class Base46ValidatedConfig
----@field integrations string[] List of integrations to load.
+---@variable.member integrations string[] List of integrations to load.
 
 -- ------------------------------------------------------------------------
 -- | Config and Setup

@@ -57,12 +57,12 @@ colorscheme.colors = {
 
 colorscheme.polish = {
   ["@keyword"] = { fg = colorscheme.colors.bg_pmenu },
-  ["@parameter"] = { fg = colorscheme.colors.light_pink },
+  ["@variable.parameter"] = { fg = colorscheme.colors.light_pink },
   ["@punctuation.bracket"] = { fg = "#AD8301" },
   ["@string"] = { fg = "#66800B" },
   ["@tag"] = { fg = "#4385BE" },
   ["@tag.attribute"] = { fg = "#BC5215" },
-  ["@text.uri"] = { fg = "#66800B" },
+  ["@string.special.url"] = { fg = "#66800B" },
   Include = { fg = "#AD8301" },
   Keyword = { fg = colorscheme.colors.bg_pmenu },
   Tag = { fg = "#4385BE" },

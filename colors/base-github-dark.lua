@@ -57,10 +57,10 @@ colorscheme.colors = {
 
 colorscheme.polish = {
   ["@constructor"] = { fg = colorscheme.colors.light_green },
-  ["@field.key"] = { fg = colorscheme.colors.white },
+  ["@variable.member.key"] = { fg = colorscheme.colors.white },
   ["@punctuation.bracket"] = { fg = colorscheme.colors.orange },
   ["@string"] = { fg = colorscheme.colors.white },
-  ["@tag.attribute"] = { link = "@method" },
+  ["@tag.attribute"] = { link = "@function.method" },
 }
 
 colorscheme:paint()

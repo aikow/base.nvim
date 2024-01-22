@@ -60,11 +60,11 @@ colorscheme.extra = {
 }
 
 colorscheme.polish = {
-  ["@field.key"] = { fg = "#4EC994" },
+  ["@variable.member.key"] = { fg = "#4EC994" },
   ["@keyword"] = { fg = "#569CD6" },
   ["@keyword.function"] = { fg = "#4294D6" },
   ["@keyword.return"] = { fg = "#C586C0" },
-  ["@parameter"] = { fg = "#569CD6" },
+  ["@variable.parameter"] = { fg = "#569CD6" },
   ["@variable"] = { fg = "#9CDCFE" },
 }
 

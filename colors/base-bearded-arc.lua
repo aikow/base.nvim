@@ -57,7 +57,7 @@ colorscheme.colors = {
 
 colorscheme.polish = {
   ["@attribute"] = { fg = colorscheme.colors.purple },
-  ["@parameter"] = { fg = colorscheme.colors.pink },
+  ["@variable.parameter"] = { fg = colorscheme.colors.pink },
 }
 
 colorscheme:paint()

@@ -60,7 +60,7 @@ colorscheme.polish = {
   ["@function.builtin"] = { fg = "#FBC19D" },
   ["@function.call"] = { fg = "#BAE6FD" },
   ["@keyword"] = { fg = "#FCA5A5" },
-  ["@method.call"] = { fg = "#BAE6FD" },
+  ["@function.method.call"] = { fg = "#BAE6FD" },
   Conditional = { fg = "#FECDD3" },
   Constant = { fg = "#FBC19D" },
   Operator = { fg = "#FECDD3" },

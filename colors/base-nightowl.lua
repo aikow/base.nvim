@@ -56,9 +56,9 @@ colorscheme.colors = {
 }
 
 colorscheme.polish = {
-  ["@conditional"] = { fg = colorscheme.colors.cyan },
+  ["@keyword.conditional"] = { fg = colorscheme.colors.cyan },
   ["@keyword.return"] = { fg = colorscheme.colors.cyan },
-  ["@parameter"] = { fg = "#FFAD60" },
+  ["@variable.parameter"] = { fg = "#FFAD60" },
 }
 
 colorscheme:paint()

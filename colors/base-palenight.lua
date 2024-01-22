@@ -56,8 +56,8 @@ colorscheme.colors = {
 }
 
 colorscheme.polish = {
-  ["@field.key"] = { fg = colorscheme.colors.orange },
-  ["@include"] = { fg = colorscheme.colors.purple },
+  ["@variable.member.key"] = { fg = colorscheme.colors.orange },
+  ["@keyword.import"] = { fg = colorscheme.colors.purple },
 }
 
 colorscheme:paint()

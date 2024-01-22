@@ -56,8 +56,8 @@ colorscheme.colors = {
 }
 
 colorscheme.polish = {
-  ["@field.key"] = { fg = "#DCD7BA" },
-  ["@include"] = { fg = colorscheme.colors.purple },
+  ["@variable.member.key"] = { fg = "#DCD7BA" },
+  ["@keyword.import"] = { fg = colorscheme.colors.purple },
   ["@punctuation.bracket"] = { fg = colorscheme.colors.purple },
   ["@punctuation.delimiter"] = { fg = "#DCD7BA" },
   ["@tag.delimiter"] = { fg = colorscheme.colors.red },

@@ -57,7 +57,7 @@ colorscheme.colors = {
 
 colorscheme.polish = {
   ["@constructor"] = { fg = colorscheme.colors.light_green },
-  ["@field.key"] = { fg = colorscheme.colors.white },
+  ["@variable.member.key"] = { fg = colorscheme.colors.white },
   ["@operator"] = { fg = colorscheme.colors.orange },
   ["@punctuation.bracket"] = { fg = "#0D7FDD" },
   Constant = { fg = colorscheme.colors.white },

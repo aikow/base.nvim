@@ -56,7 +56,7 @@ colorscheme.colors = {
 }
 
 colorscheme.polish = {
-  ["@parameter"] = { fg = "#F99157" },
+  ["@variable.parameter"] = { fg = "#F99157" },
   Constant = { fg = "#FAC863" },
 }
 

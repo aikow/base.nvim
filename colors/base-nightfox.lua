@@ -56,10 +56,10 @@ colorscheme.colors = {
 }
 
 colorscheme.polish = {
-  ["@field.key"] = { fg = colorscheme.theme.base0F },
+  ["@variable.member.key"] = { fg = colorscheme.theme.base0F },
   ["@keyword"] = { fg = colorscheme.colors.teal },
   ["@operator"] = { fg = colorscheme.colors.dark_purple },
-  ["@parameter"] = { fg = colorscheme.colors.teal },
+  ["@variable.parameter"] = { fg = colorscheme.colors.teal },
 }
 
 colorscheme:paint()

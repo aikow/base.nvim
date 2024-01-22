@@ -7,14 +7,14 @@ local M = {}
 -- ------------------------------------------------------------------------
 
 ---@class (exact) Base46Color
----@field fg string?
----@field bg string?
----@field sp string?
----@field link string?
----@field italic boolean?
----@field underline boolean?
----@field strikethrough boolean?
----@field undercurl boolean?
+---@variable.member fg string?
+---@variable.member bg string?
+---@variable.member sp string?
+---@variable.member link string?
+---@variable.member italic boolean?
+---@variable.member underline boolean?
+---@variable.member strikethrough boolean?
+---@variable.member undercurl boolean?
 M.Color = {}
 
 ---comment
@@ -37,22 +37,22 @@ setmetatable(M.Color, {
 -- ------------------------------------------------------------------------
 
 ---@class (exact) Base46ThemePalette
----@field base00 string -- Default background color
----@field base01 string -- Lighter background color (status bars, line numbers, folding marks)
----@field base02 string -- Selection background
----@field base03 string -- Comments, invisibles, line highlighting
----@field base04 string -- Dark foreground (status bars)
----@field base05 string -- Default foreground (caret, delimiters, operators)
----@field base06 string -- Light foreground (infrequent)
----@field base07 string -- Light background (infrequent)
----@field base08 string -- Variables, XML tags, markup link text, markup lists, diff deleted
----@field base09 string -- Integers, booleans, constants, XML attributes, markup link URLs
----@field base0A string -- Classes, markup bold, search text background
----@field base0B string -- Strings, inherited classes, markup code, diff inserted
----@field base0C string -- Support, regular expressions, escape characters, markup quotes
----@field base0D string -- Functions, methods, attribute IDs, headings
----@field base0E string -- Keywords, storage, selector, markup italic, diff changed
----@field base0F string -- Deprecated, opening and closing embedded language tags
+---@variable.member base00 string -- Default background color
+---@variable.member base01 string -- Lighter background color (status bars, line numbers, folding marks)
+---@variable.member base02 string -- Selection background
+---@variable.member base03 string -- Comments, invisibles, line highlighting
+---@variable.member base04 string -- Dark foreground (status bars)
+---@variable.member base05 string -- Default foreground (caret, delimiters, operators)
+---@variable.member base06 string -- Light foreground (infrequent)
+---@variable.member base07 string -- Light background (infrequent)
+---@variable.member base08 string -- Variables, XML tags, markup link text, markup lists, diff deleted
+---@variable.member base09 string -- Integers, booleans, constants, XML attributes, markup link URLs
+---@variable.member base0A string -- Classes, markup bold, search text background
+---@variable.member base0B string -- Strings, inherited classes, markup code, diff inserted
+---@variable.member base0C string -- Support, regular expressions, escape characters, markup quotes
+---@variable.member base0D string -- Functions, methods, attribute IDs, headings
+---@variable.member base0E string -- Keywords, storage, selector, markup italic, diff changed
+---@variable.member base0F string -- Deprecated, opening and closing embedded language tags
 M.ThemePalette = {}
 
 ---comment
@@ -75,36 +75,36 @@ setmetatable(M.ThemePalette, {
 -- ------------------------------------------------------------------------
 
 ---@class (exact) Base46ThemeColors
----@field white string
----@field black string -- Nvim theme background color
----@field dark_black string -- 6% darker than black
----@field bg_1 string -- 6% lighter than black
----@field bg_2 string -- 10% lighter than black
----@field bg_3 string -- 19% lighter than black
----@field bg_4 string -- 27% lighter than black
----@field grey string -- 40% lighter than black, but can vary
----@field light_grey_1 string -- 10% lighter than grey
----@field light_grey_2 string -- 20% lighter than grey
----@field light_grey_3 string -- 28% lighter than grey
----@field bg_statusline string -- 4% lighter than black.
----@field bg_light string -- 13% lighter than statusline_bg
----@field bg_pmenu string -- Pop-up menu background color
----@field bg_folder string -- Any blue color
----@field line string -- 15% lighter than black
----@field red string
----@field pink string
----@field light_pink string -- 15% lighter than red (or any other baby pink color)
----@field green string
----@field light_green string
----@field nord_blue string -- 13% darker then blue
----@field blue string
----@field yellow string
----@field sun string -- 8% lighter than yellow
----@field purple string
----@field dark_purple string
----@field teal string
----@field orange string
----@field cyan string
+---@variable.member white string
+---@variable.member black string -- Nvim theme background color
+---@variable.member dark_black string -- 6% darker than black
+---@variable.member bg_1 string -- 6% lighter than black
+---@variable.member bg_2 string -- 10% lighter than black
+---@variable.member bg_3 string -- 19% lighter than black
+---@variable.member bg_4 string -- 27% lighter than black
+---@variable.member grey string -- 40% lighter than black, but can vary
+---@variable.member light_grey_1 string -- 10% lighter than grey
+---@variable.member light_grey_2 string -- 20% lighter than grey
+---@variable.member light_grey_3 string -- 28% lighter than grey
+---@variable.member bg_statusline string -- 4% lighter than black.
+---@variable.member bg_light string -- 13% lighter than statusline_bg
+---@variable.member bg_pmenu string -- Pop-up menu background color
+---@variable.member bg_folder string -- Any blue color
+---@variable.member line string -- 15% lighter than black
+---@variable.member red string
+---@variable.member pink string
+---@variable.member light_pink string -- 15% lighter than red (or any other baby pink color)
+---@variable.member green string
+---@variable.member light_green string
+---@variable.member nord_blue string -- 13% darker then blue
+---@variable.member blue string
+---@variable.member yellow string
+---@variable.member sun string -- 8% lighter than yellow
+---@variable.member purple string
+---@variable.member dark_purple string
+---@variable.member teal string
+---@variable.member orange string
+---@variable.member cyan string
 M.ThemeColors = {}
 
 ---comment
@@ -129,12 +129,12 @@ setmetatable(M.ThemeColors, {
 -- A color scheme object defines some basic properties that are then used to
 ---create all the other highlight groups.
 ---@class (exact) Base46Theme
----@field name string The name of the color scheme which should match the file name.
----@field background Base46Background The background color, either 'light' or 'dark'
----@field theme Base46ThemePalette The base16 theme.
----@field colors Base46ThemeColors The extended colors.
----@field extra table<string, string> Any extra colors that are only specific to this theme.
----@field polish table<string, Base46Color> Overrides for the default generated highlight groups.
+---@variable.member name string The name of the color scheme which should match the file name.
+---@variable.member background Base46Background The background color, either 'light' or 'dark'
+---@variable.member theme Base46ThemePalette The base16 theme.
+---@variable.member colors Base46ThemeColors The extended colors.
+---@variable.member extra table<string, string> Any extra colors that are only specific to this theme.
+---@variable.member polish table<string, Base46Color> Overrides for the default generated highlight groups.
 M.Theme = {}
 
 ---comment

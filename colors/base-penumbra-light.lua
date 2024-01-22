@@ -60,8 +60,8 @@ colorscheme.extra = {
 }
 
 colorscheme.polish = {
-  ["@field"] = { fg = colorscheme.extra.coal },
-  ["@field.key"] = { fg = colorscheme.colors.red },
+  ["@variable.member"] = { fg = colorscheme.extra.coal },
+  ["@variable.member.key"] = { fg = colorscheme.colors.red },
   ["@function.builtin"] = { fg = colorscheme.colors.teal },
   ["@punctuation.bracket"] = { fg = colorscheme.extra.coal },
   Constant = { fg = colorscheme.colors.red },

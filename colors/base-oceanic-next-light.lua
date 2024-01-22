@@ -56,7 +56,7 @@ colorscheme.colors = {
 }
 
 colorscheme.polish = {
-  ["@field"] = { fg = colorscheme.colors.green },
+  ["@variable.member"] = { fg = colorscheme.colors.green },
   Constant = { fg = colorscheme.theme.base09 },
 }
 
