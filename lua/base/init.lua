@@ -2,18 +2,28 @@ local Base46 = {}
 local H = {}
 
 ---@class Base46Config
----@variable.member integrations string[] | nil List of integrations to load.
+---@field integrations string[] | nil List of integrations to load.
 
 ---@class Base46ValidatedConfig
----@variable.member integrations string[] List of integrations to load.
+---@field integrations string[] List of integrations to load.
+
+---@alias Base46IntegrationHighlights fun(theme: Base46ThemePalette, colors: Base46ThemeColors): table<string, Base46Color>
+---@alias Base46IntegrationAfter fun(theme: Base46ThemePalette, colors: Base46ThemeColors): nil
+---@alias Base46IntegrationSpec { highlights: Base46IntegrationHighlights, after: Base46IntegrationAfter}
+---@alias Base46IntegrationConfigSpec
+---| string  # Name of a module to load from the runtime path.
+---| Base46IntegrationConfigSpec  # A custom integration which can be loaded directly
 
 -- ------------------------------------------------------------------------
 -- | Config and Setup
 -- ------------------------------------------------------------------------
 
----Setup the global Base46 module and initialze the global config.
+---Lua module path prefix for all base.nvim integrations.
+H.modpath_prefix = "base.integrations."
+
+---Setup the global Base46 module and initialize the global config.
 ---@param config Base46Config
-Base46.setup = function(config)
+function Base46.setup(config)
   -- Export module
   _G.Base46 = Base46
 
@@ -51,7 +61,7 @@ H.default_config = {
 ---comment
 ---@param config Base46Config
 ---@return Base46ValidatedConfig
-H.setup_config = function(config)
+function H.setup_config(config)
   vim.validate({
     config = { config, "table", true },
   })
@@ -62,9 +72,7 @@ H.setup_config = function(config)
   vim.validate({
     integrations = {
       validated.integrations,
-      function(t)
-        return t == nil or vim.tbl_islist(t)
-      end,
+      function(t) return t == nil or vim.tbl_islist(t) end,
       "expected a list",
     },
   })
@@ -74,32 +82,46 @@ end
 
 ---Set the supplied config to the global config.
 ---@param config Base46ValidatedConfig
-H.apply_config = function(config)
-  Base46.config = config
-end
+function H.apply_config(config) Base46.config = config end
 
 -- ------------------------------------------------------------------------
 -- | Painting
 -- ------------------------------------------------------------------------
 
----Get a list of all integration modules in the runtime path.
+---comment
+---@param mod table
+---@return Base46IntegrationSpec
+function H.validate_integration(mod)
+  -- Set default values for both functions
+  mod.highlights = mod.highlights or function() return {} end
+  mod.after = mod.after or function() end
+  return mod
+end
+
+---Load an integration from a module.
+---@param integration_name string module name to load as integrations
+---@return { highlights: function, after: function }?
+function H.load_integration_from_module(integration_name)
+  local ok, mod = pcall(require, H.modpath_prefix .. integration_name)
+  if ok then
+    return H.validate_integration(mod)
+  else
+    vim.notify("base: unable to load integration " .. integration_name, vim.log.levels.WARN)
+  end
+end
+
+---Resolve the list of integrations from the plugin config.
 ---@param integrations string[] list of module names to load as integrations
 ---@return { highlights: function, after: function }[]
-H.load_integrations = function(integrations)
-  local modpath = "base.integrations."
+function H.resolve_integrations(integrations)
   local loaded_integrations = {}
 
-  for _, group in ipairs(integrations) do
-    local ok, mod = pcall(require, modpath .. group)
-    if ok then
-      -- Set default values for both functions
-      mod.highlights = mod.highlights or function()
-        return {}
-      end
-      mod.after = mod.after or function() end
-      table.insert(loaded_integrations, mod)
-    else
-      vim.notify("base: unable to load integration " .. group, vim.log.levels.WARN)
+  for _, integration in ipairs(integrations) do
+    if type(integration) == "string" then
+      local mod = H.load_integration_from_module(integration)
+      if mod then table.insert(loaded_integrations, mod) end
+    elseif type(integration) == "table" then
+      table.insert(loaded_integrations, H.validate_integration(integration))
     end
   end
 
@@ -108,20 +130,18 @@ end
 
 ---Set the neovim color scheme based on the color scheme object.
 ---@param colorscheme Base46Theme
-Base46.paint = function(colorscheme)
+function Base46.paint(colorscheme)
   colorscheme.polish = colorscheme.polish or {}
   local highlights = {}
 
   -- Clear existing highlight groups
   vim.cmd([[highlight clear]])
-  if vim.fn.exists("syntax_on") then
-    vim.cmd([[syntax reset]])
-  end
+  if vim.fn.exists("syntax_on") then vim.cmd([[syntax reset]]) end
 
   vim.g.colors_name = colorscheme.name
   vim.opt.background = colorscheme.background or "dark"
 
-  local integrations = H.load_integrations(Base46.config.integrations)
+  local integrations = H.resolve_integrations(Base46.config.integrations)
 
   -- Load all integrations
   for _, mod in ipairs(integrations) do
