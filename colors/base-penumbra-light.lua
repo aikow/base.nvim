@@ -60,10 +60,10 @@ colorscheme.extra = {
 }
 
 colorscheme.polish = {
-  ["@variable.member"] = { fg = colorscheme.extra.coal },
-  ["@variable.member.key"] = { fg = colorscheme.colors.red },
   ["@function.builtin"] = { fg = colorscheme.colors.teal },
   ["@punctuation.bracket"] = { fg = colorscheme.extra.coal },
+  ["@variable.member"] = { fg = colorscheme.extra.coal },
+  ["@variable.member.key"] = { fg = colorscheme.colors.red },
   Constant = { fg = colorscheme.colors.red },
   Include = { fg = colorscheme.colors.dark_purple },
 }

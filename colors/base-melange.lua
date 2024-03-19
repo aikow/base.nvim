@@ -60,9 +60,9 @@ colorscheme.extra = {
 }
 
 colorscheme.polish = {
+  ["@function.macro"] = { fg = "#99D59D" },
   ["@variable.member"] = { fg = "#ECE1D7" },
   ["@variable.member.key"] = { fg = "#ECE1D7" },
-  ["@function.macro"] = { fg = "#99D59D" },
   Boolean = { fg = colorscheme.colors.purple },
   Include = { fg = "#99D59D" },
   Operator = { fg = "#F17C64" },

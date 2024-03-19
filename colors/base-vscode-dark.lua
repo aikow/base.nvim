@@ -60,12 +60,12 @@ colorscheme.extra = {
 }
 
 colorscheme.polish = {
-  ["@variable.member.key"] = { fg = "#4EC994" },
   ["@keyword"] = { fg = "#569CD6" },
   ["@keyword.function"] = { fg = "#4294D6" },
   ["@keyword.return"] = { fg = "#C586C0" },
-  ["@variable.parameter"] = { fg = "#569CD6" },
   ["@variable"] = { fg = "#9CDCFE" },
+  ["@variable.member.key"] = { fg = "#4EC994" },
+  ["@variable.parameter"] = { fg = "#569CD6" },
 }
 
 colorscheme:paint()

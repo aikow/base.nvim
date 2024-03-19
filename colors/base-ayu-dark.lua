@@ -58,9 +58,9 @@ colorscheme.colors = {
 colorscheme.polish = {
   ["@constructor"] = { fg = colorscheme.theme.base0A },
   ["@function"] = { fg = colorscheme.colors.orange },
-  ["@variable.parameter"] = { fg = "#CBA6F7" },
   ["@tag.attribute"] = { fg = colorscheme.colors.orange },
   ["@tag.delimiter"] = { fg = "#95E6CB" },
+  ["@variable.parameter"] = { fg = "#CBA6F7" },
   luaTSField = { fg = "#F07174" },
 }
 

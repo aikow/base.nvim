@@ -57,9 +57,9 @@ colorscheme.colors = {
 
 colorscheme.polish = {
   ["@constructor"] = { fg = colorscheme.colors.light_green },
-  ["@variable.member.key"] = { fg = colorscheme.colors.white },
   ["@operator"] = { fg = colorscheme.colors.orange },
   ["@punctuation.bracket"] = { fg = "#0D7FDD" },
+  ["@variable.member.key"] = { fg = colorscheme.colors.white },
   Constant = { fg = colorscheme.colors.white },
   Tag = { fg = colorscheme.colors.light_green },
 }

@@ -59,9 +59,9 @@ colorscheme.polish = {
   ["@constant"] = { fg = colorscheme.colors.orange },
   ["@function.call"] = { fg = colorscheme.colors.blue },
   ["@function.method.call"] = { fg = colorscheme.colors.red },
-  ["@variable.parameter"] = { fg = colorscheme.colors.orange },
   ["@punctuation.bracket"] = { fg = colorscheme.colors.purple },
   ["@variable"] = { fg = colorscheme.theme.base05 },
+  ["@variable.parameter"] = { fg = colorscheme.colors.orange },
 }
 
 colorscheme:paint()

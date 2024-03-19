@@ -57,10 +57,10 @@ colorscheme.colors = {
 
 colorscheme.polish = {
   ["@boolean"] = { fg = colorscheme.theme.base09 },
-  ["@variable.member.key"] = { fg = colorscheme.colors.white },
   ["@operator"] = { fg = colorscheme.colors.red },
   ["@punctuation.bracket"] = { fg = colorscheme.colors.sun },
   ["@string"] = { fg = colorscheme.colors.sun },
+  ["@variable.member.key"] = { fg = colorscheme.colors.white },
   Operator = { fg = colorscheme.colors.red },
   parameter = { fg = colorscheme.colors.blue },
 }

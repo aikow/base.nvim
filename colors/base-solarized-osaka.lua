@@ -1,0 +1,72 @@
+local colorscheme = require("base.theme").Theme({
+  name = "base-solarized-osaka",
+  background = "dark",
+})
+
+colorscheme.theme = {
+  base00 = "#011219",
+  base01 = "#022736",
+  base02 = "#03394f",
+  base03 = "#044a67",
+  base04 = "#1b4651",
+  base05 = "#9eabac",
+  base06 = "#eee8d5",
+  base07 = "#fdf6e3",
+  base08 = "#268bd2",
+  base09 = "#519aba",
+  base0A = "#b28500",
+  base0B = "#29a298",
+  base0C = "#c94c16",
+  base0D = "#268bd2",
+  base0E = "#849900",
+  base0F = "#c94c16",
+}
+
+colorscheme.colors = {
+  bg_1 = "#02202d",
+  bg_2 = "#022736",
+  bg_3 = "#03394f",
+  bg_4 = "#044a67",
+  bg_folder = "#268bd3",
+  bg_light = "#03394f",
+  bg_pmenu = "#29a298",
+  bg_statusline = "#02202d",
+  black = "#011219",
+  blue = "#268bd3",
+  cyan = "#2aa198",
+  dark_black = "#011923",
+  dark_purple = "#b02669",
+  green = "#849900",
+  grey = "#405055",
+  light_green = "#bad600",
+  light_grey_1 = "#47585e",
+  light_grey_2 = "#4f6369",
+  light_grey_3 = "#586e75",
+  light_pink = "#575ea2",
+  line = "#022736",
+  nord_blue = "#1a6397",
+  orange = "#c84c16",
+  pink = "#849900",
+  purple = "#29a298",
+  red = "#db302d",
+  sun = "#e6ac00",
+  teal = "#519aba",
+  white = "#9eabac",
+  yellow = "#b28500",
+}
+
+colorscheme.polish = {
+  ["@constant"] = { fg = colorscheme.colors.purple },
+  ["@function.builtin"] = { fg = colorscheme.theme.base0C },
+  ["@operator"] = { fg = colorscheme.colors.green },
+  ["@variable.parameter"] = { fg = colorscheme.theme.base0C },
+  DiagnosticVirtualTextError = { bg = "#570f0e", fg = colorscheme.colors.red },
+  DiagnosticVirtualTextHint = { bg = "#103a3c", fg = colorscheme.colors.purple },
+  DiagnosticVirtualTextInfo = { bg = "#0f3856", fg = colorscheme.colors.blue },
+  DiagnosticVirtualTextWarn = { bg = "#332700", fg = colorscheme.colors.yellow },
+  IncSearch = { fg = colorscheme.theme.base0C, bg = "none", standout = true },
+  Include = { fg = colorscheme.colors.green },
+  Tag = { fg = colorscheme.colors.green },
+}
+
+colorscheme:paint()

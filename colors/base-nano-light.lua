@@ -68,13 +68,13 @@ colorscheme.polish = {
   ["@function"] = { bold = true },
   ["@function.builtin"] = { bold = true },
   ["@function.call"] = { bold = true },
-  ["@keyword"] = { fg = "#673AB7" },
   ["@function.method.call"] = { bold = true },
+  ["@keyword"] = { fg = "#673AB7" },
   ["@module"] = { fg = colorscheme.extra.deep_black },
+  ["@symbol"] = { fg = "#673AB7" },
   ["@variable.parameter"] = { fg = "#37474F" },
-  ["@string.special.symbol"] = { fg = "#673AB7" },
   NvDashAscii = { bg = "#673AB7" },
-  TelescopeMatching = { fg = "#673AB7", bg = colorscheme.colors.bg_light },
+  TelescopeMatching = { fg = "#673AB7", bg = colorscheme.colors.bg_3 },
 }
 
 colorscheme:paint()

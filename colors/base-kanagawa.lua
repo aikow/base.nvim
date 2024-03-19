@@ -56,12 +56,12 @@ colorscheme.colors = {
 }
 
 colorscheme.polish = {
-  ["@variable.member.key"] = { fg = "#DCD7BA" },
   ["@keyword.import"] = { fg = colorscheme.colors.purple },
   ["@punctuation.bracket"] = { fg = colorscheme.colors.purple },
   ["@punctuation.delimiter"] = { fg = "#DCD7BA" },
   ["@tag.delimiter"] = { fg = colorscheme.colors.red },
   ["@uri"] = { fg = "#7FB4CA" },
+  ["@variable.member.key"] = { fg = "#DCD7BA" },
   Number = { fg = "#D27E99" },
 }
 

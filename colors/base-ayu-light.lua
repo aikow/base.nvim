@@ -57,9 +57,9 @@ colorscheme.colors = {
 
 colorscheme.polish = {
   ["@constructor"] = { fg = "#4CBF99" },
-  ["@variable.parameter"] = { fg = "#A37ACC" },
   ["@tag.attribute"] = {},
   ["@tag.delimiter"] = {},
+  ["@variable.parameter"] = { fg = "#A37ACC" },
   PmenuSel = { fg = colorscheme.colors.white, bg = "#95E6CB" },
   luaTSField = { fg = "#FA8D3E" },
 }

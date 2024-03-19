@@ -56,8 +56,8 @@ colorscheme.colors = {
 }
 
 colorscheme.polish = {
-  ["@variable.member"] = { fg = colorscheme.colors.blue },
   ["@punctuation.bracket"] = { fg = "#ECBE7B" },
+  ["@variable.member"] = { fg = colorscheme.colors.blue },
 }
 
 colorscheme:paint()

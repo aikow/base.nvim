@@ -57,9 +57,9 @@ colorscheme.colors = {
 
 colorscheme.polish = {
   ["@constructor"] = { fg = colorscheme.colors.blue },
-  ["@variable.member"] = { fg = colorscheme.theme.base05 },
   ["@keyword.import"] = { fg = colorscheme.colors.bg_pmenu },
   ["@tag"] = { fg = "#F7954F" },
+  ["@variable.member"] = { fg = colorscheme.theme.base05 },
   DiffAdd = { fg = colorscheme.colors.green },
   NvimTreeFolderName = { fg = "#4e565c" },
   Pmenu = { bg = "#F0EAD9" },

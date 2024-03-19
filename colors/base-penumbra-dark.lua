@@ -57,11 +57,11 @@ colorscheme.colors = {
 
 colorscheme.polish = {
   ["@constructor"] = { fg = "#CE9042" },
-  ["@variable.member.key"] = { fg = "#CA7081" },
-  ["@variable.parameter"] = { fg = "#CE9042" },
   ["@punctuation.bracket"] = { fg = colorscheme.theme.base08 },
   ["@tag.attribute"] = { link = "@annotation" },
   ["@tag.delimiter"] = { fg = colorscheme.theme.base08 },
+  ["@variable.member.key"] = { fg = "#CA7081" },
+  ["@variable.parameter"] = { fg = "#CE9042" },
   Constant = { fg = "#CA7081" },
   Operator = { fg = "#00B3C2" },
 }

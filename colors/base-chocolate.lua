@@ -61,13 +61,13 @@ colorscheme.extra = {
 
 colorscheme.polish = {
   ["@attribute"] = { fg = colorscheme.colors.cyan },
-  ["@variable.member"] = { fg = colorscheme.colors.purple },
   ["@function.builtin"] = { fg = colorscheme.colors.yellow },
   ["@module"] = { fg = colorscheme.extra.beige },
-  ["@variable.parameter"] = { fg = colorscheme.colors.green },
   ["@parenthesis"] = { link = "@punctuation.bracket" },
   ["@punctuation.bracket"] = { fg = colorscheme.theme.base06 },
   ["@variable"] = { fg = colorscheme.theme.base06 },
+  ["@variable.member"] = { fg = colorscheme.colors.purple },
+  ["@variable.parameter"] = { fg = colorscheme.colors.green },
   Operator = { fg = colorscheme.colors.blue },
 }
 
