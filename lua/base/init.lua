@@ -32,6 +32,9 @@ function Base46.setup(config)
 
   -- Apply config
   H.apply_config(validated)
+
+  -- Setup autocmds
+  H.setup_autocmds()
 end
 
 ---@type Base46ValidatedConfig
@@ -58,7 +61,7 @@ H.default_config = {
   },
 }
 
----comment
+---Perform some basic validation of the config.
 ---@param config Base46Config
 ---@return Base46ValidatedConfig
 function H.setup_config(config)
@@ -84,11 +87,24 @@ end
 ---@param config Base46ValidatedConfig
 function H.apply_config(config) Base46.config = config end
 
+---Setup autocmds to clear the global base variables.
+function H.setup_autocmds()
+  vim.api.nvim_create_autocmd("ColorschemePre", {
+    group = vim.api.nvim_create_augroup(
+      "base.nvim reset global base colorscheme name",
+      { clear = true }
+    ),
+    callback = function() vim.g.base_colorscheme = "" end,
+  })
+end
+
 -- ------------------------------------------------------------------------
 -- | Painting
 -- ------------------------------------------------------------------------
 
----comment
+---Validate a loaded integration table by making sure it has all required
+---functions. To simplify downstream code, set the function to an empty dummy
+---function in case no function was given.
 ---@param mod table
 ---@return Base46IntegrationSpec
 function H.validate_integration(mod)
@@ -139,6 +155,7 @@ function Base46.paint(colorscheme)
   if vim.fn.exists("syntax_on") then vim.cmd([[syntax reset]]) end
 
   vim.g.colors_name = colorscheme.name
+  vim.g.base_colorscheme = colorscheme.name
   vim.opt.background = colorscheme.background or "dark"
 
   local integrations = H.resolve_integrations(Base46.config.integrations)

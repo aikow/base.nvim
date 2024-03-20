@@ -1,8 +1,6 @@
 local M = {}
 
-M.title = function(s)
-  return s:sub(1, 1):upper() .. s:sub(2):lower()
-end
+M.title = function(s) return s:sub(1, 1):upper() .. s:sub(2):lower() end
 
 M.snake_to_camel = function(snake)
   local camel = {}

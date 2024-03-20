@@ -43,9 +43,7 @@ M.after = function(theme, colors)
   }
 
   local ok_lualine, lualine = pcall(require, "lualine")
-  if not ok_lualine then
-    return
-  end
+  if not ok_lualine then return end
   lualine.setup({
     options = {
       theme = theme,

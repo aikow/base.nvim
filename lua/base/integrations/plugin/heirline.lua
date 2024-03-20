@@ -18,9 +18,7 @@ end
 ---@param colors Base46ThemeColors
 M.after = function(theme, colors)
   local ok_heirline, heirline = pcall(require, "heirline")
-  if not ok_heirline then
-    return
-  end
+  if not ok_heirline then return end
   heirline.reset_highlights()
   heirline.load_colors({
     bright_bg = colors.bg_statusline,
