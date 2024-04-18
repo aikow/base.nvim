@@ -6,13 +6,16 @@ local M = {}
 ---@return table<string, Base46Color>
 M.highlights = function(theme, colors)
   return {
+    -- Added in nvim 0.10
+    Added = { fg = colors.green },
+    Changed = { fg = colors.orange },
+    Removed = { fg = colors.red },
+
+    -- Defined in syntax.txt
     DiffAdd = { fg = colors.blue },
-    DiffAdded = { fg = colors.green },
-    DiffChange = { fg = colors.light_grey_3 },
-    DiffChangeDelete = { fg = colors.red },
-    DiffModified = { fg = colors.orange },
+    DiffChange = { fg = colors.orange },
+    DiffText = { fg = colors.green },
     DiffDelete = { fg = colors.red },
-    DiffRemoved = { fg = colors.red },
 
     gitcommitOverflow = { fg = theme.base08 },
     gitcommitSummary = { fg = theme.base08 },
