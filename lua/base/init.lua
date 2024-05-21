@@ -75,7 +75,7 @@ function H.setup_config(config)
   vim.validate({
     integrations = {
       validated.integrations,
-      function(t) return t == nil or vim.tbl_islist(t) end,
+      function(t) return t == nil or vim.islist(t) end,
       "expected a list",
     },
   })
