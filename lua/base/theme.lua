@@ -11,6 +11,7 @@ local M = {}
 ---@field bg string?
 ---@field sp string?
 ---@field link string?
+---@field bold boolean?
 ---@field italic boolean?
 ---@field underline boolean?
 ---@field strikethrough boolean?

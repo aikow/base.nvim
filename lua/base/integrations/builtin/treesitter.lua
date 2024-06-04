@@ -10,7 +10,7 @@ M.highlights = function(theme, colors)
     ["@attribute"] = { fg = theme.base0A },
     ["@character"] = { fg = theme.base08 },
     ["@character.special"] = { fg = theme.base08 },
-    ["@comment"] = { fg = colors.light_grey_1 },
+    ["@comment"] = { fg = colors.light_grey_3, italic = true },
     ["@comment.error"] = { fg = colors.bg_1, bg = colors.red },
     ["@comment.hint"] = { fg = colors.bg_1, bg = colors.white },
     ["@comment.info"] = { fg = colors.bg_1, bg = colors.white },
