@@ -60,7 +60,7 @@ M.highlights = function(theme, colors)
     ["@markup.list.unchecked"] = { fg = colors.light_grey_1, bold = true },
     ["@markup.math"] = { fg = colors.light_green, bg = colors.bg_3 },
     ["@markup.quote"] = { bg = colors.bg_3 },
-    ["@markup.raw"] = { fg = theme.base09 },
+    ["@markup.raw"] = { fg = theme.base09, bg = colors.bg_3 },
     ["@markup.raw.block"] = { fg = theme.base09 },
     ["@markup.strikethrough"] = { strikethrough = true },
     ["@markup.strong"] = { bold = true },
