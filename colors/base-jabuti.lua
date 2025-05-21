@@ -56,7 +56,7 @@ colorscheme.colors = {
 }
 
 colorscheme.polish = {
-  Conditional = { fg = colorscheme.colors.blue },
+  Conditional = { fg = colorscheme.colors.nord_blue },
   Tag = { fg = colorscheme.colors.red },
 }
 

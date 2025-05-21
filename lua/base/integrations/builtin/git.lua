@@ -8,13 +8,14 @@ M.highlights = function(theme, colors)
   return {
     -- Added in nvim 0.10
     Added = { fg = colors.green },
-    Changed = { fg = colors.orange },
+    Changed = { fg = colors.yellow },
     Removed = { fg = colors.red },
 
     -- Defined in syntax.txt
-    DiffAdd = { fg = colors.blue },
-    DiffChange = { fg = colors.orange },
-    DiffText = { fg = colors.green },
+    DiffAdd = { fg = colors.green },
+    DiffChange = { fg = colors.light_grey_3 },
+    DiffText = { fg = colors.white, bg = colors.bg_1 },
+    DiffTextAdd = { link = "DiffText" },
     DiffDelete = { fg = colors.red },
 
     gitcommitOverflow = { fg = theme.base08 },

@@ -7,12 +7,13 @@ local M = {}
 M.highlights = function(theme, colors)
   return {
     -- LSP References
-    LspReferenceText = { fg = colors.dark_black, bg = colors.white },
-    LspReferenceRead = { fg = colors.dark_black, bg = colors.white },
-    LspReferenceWrite = { fg = colors.dark_black, bg = colors.white },
+    LspReferenceText = { bg = colors.bg_4 },
+    LspReferenceRead = { bg = colors.bg_4 },
+    LspReferenceWrite = { bg = colors.bg_4 },
 
     -- LSP method signature
     LspSignatureActiveParameter = { fg = colors.black, bg = colors.green },
+    LspInlayHint = { fg = colors.light_grey_3, bg = colors.bg_1 },
 
     -- Lsp Diagnostics
     DiagnosticHint = { fg = colors.purple },

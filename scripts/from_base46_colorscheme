@@ -1,4 +1,5 @@
-#!/usr/bin/env lua
+#!/usr/bin/env -S nvim --clean -l
+-- vim: ft=lua
 --
 -- Create a mock base46 module
 package.loaded.base46 = {
@@ -9,9 +10,16 @@ package.loaded.base46 = {
 }
 
 package.loaded.nvconfig = {
+  base46 = { transparency = false },
   ui = {
+    cmp = {
+      style = "default",
+    },
     statusline = {
       theme = "vscode_colored",
+    },
+    telescope = {
+      style = { "bordered" },
     },
   },
 }
@@ -70,16 +78,6 @@ local ignore_hl = {
   "^TbLine",
 }
 
-local function contains(t, needle)
-  for _, item in pairs(t) do
-    if item == needle then
-      return true
-    end
-  end
-
-  return false
-end
-
 ---comment
 ---@param t table table with sortable keys.
 ---@param f function? An optional comparator function.
@@ -104,21 +102,6 @@ local function sorted(t, f)
   return iter
 end
 
-local function inspect(o)
-  if type(o) == "table" then
-    local s = "{ "
-    for k, v in pairs(o) do
-      if type(k) ~= "number" then
-        k = '"' .. k .. '"'
-      end
-      s = s .. "[" .. k .. "] = " .. inspect(v) .. ","
-    end
-    return s .. "} "
-  else
-    return tostring(o)
-  end
-end
-
 ---Search for a color in the 3 color tables associated with a colorscheme. The
 ---order the tables are searched in is first the base 30 colors, then the extra
 ---colors, and finally the base_16 colors.
@@ -126,26 +109,18 @@ end
 ---@param color string | boolean the value of the attribute on the Color
 ---@return string representation of the link as a string of lua code
 local function lookup_color(module, color)
-  if type(color) == "boolean" then
-    return color and "true" or "false"
-  end
+  if type(color) == "boolean" then return color and "true" or "false" end
 
   for key, value in pairs(module.base_30) do
-    if value == color then
-      return string.format([[colorscheme.colors.%s]], key)
-    end
+    if value == color then return string.format([[colorscheme.colors.%s]], key) end
   end
 
   for key, value in pairs(module.extra) do
-    if value == color then
-      return string.format([[colorscheme.extra.%s]], key)
-    end
+    if value == color then return string.format([[colorscheme.extra.%s]], key) end
   end
 
   for key, value in pairs(module.base_16) do
-    if value == color then
-      return string.format([[colorscheme.theme.%s]], key)
-    end
+    if value == color then return string.format([[colorscheme.theme.%s]], key) end
   end
 
   return string.format([["%s"]], color)
@@ -164,9 +139,7 @@ end
 ---@return table
 local function read_module(filename)
   local chunk = loadfile(filename, "t", _ENV)
-  if chunk == nil then
-    error(string.format("Unable to find a file at %s", filename), 2)
-  end
+  if chunk == nil then error(string.format("Unable to find a file at %s", filename), 2) end
 
   local module = chunk()
   if type(module) ~= "table" then
@@ -207,8 +180,19 @@ local function read_module(filename)
   -- and base 30 colors to determine which value is being referenced.
   result.polish = {}
   for integration_name, integration_highlights in pairs(module.polish_hl or {}) do
-    if not contains(ignore_integrations, integration_name) then
+    if not vim.list_contains(ignore_integrations, integration_name) then
       for hl_group, color in pairs(integration_highlights) do
+        if type(color) ~= "table" then
+          error(
+            string.format(
+              "found invalid color definition for %s %s: %s",
+              integration_name,
+              hl_group,
+              vim.inspect(color)
+            )
+          )
+        end
+
         local new_color = {}
         for attr, value in pairs(color) do
           new_color[attr] = lookup_color(result, value)
@@ -229,9 +213,7 @@ local function dump_module(dirpath, theme)
   print(string.format("writing colorscheme to %s", filepath))
 
   local file = io.open(filepath, "w")
-  if file == nil then
-    error(string.format("unable to open file for writing: %s", filepath), 2)
-  end
+  if file == nil then error(string.format("unable to open file for writing: %s", filepath), 2) end
 
   -- Create Colorscheme instance
   file:write(
@@ -305,15 +287,21 @@ end
 
 -- Check that we have at least one argument
 if #arg < 2 then
-  error("expected at least 2 arguments", 2)
+  error("usage: from_base46 OUTPUT_DIR [COLORSCHEME_PATH] [COLORSCHEME_PATH...]", 2)
 end
 
 local output_dir = arg[1]
-local filepaths = { table.unpack(arg, 2) }
+local filepaths = { unpack(arg, 2) }
 
 -- Loop through all files.
 for _, file in ipairs(filepaths) do
   print(file)
-  local module = read_module(file)
-  dump_module(output_dir, module)
+
+  local ok, module = pcall(read_module, file)
+  if not ok then
+    print("failed to read module:", file)
+    print(module)
+  end
+
+  if ok then dump_module(output_dir, module) end
 end

@@ -56,15 +56,15 @@ colorscheme.colors = {
 }
 
 colorscheme.polish = {
-  ["@constant"] = { fg = colorscheme.colors.purple },
+  ["@constant"] = { fg = colorscheme.colors.bg_pmenu },
   ["@function.builtin"] = { fg = colorscheme.theme.base0C },
   ["@operator"] = { fg = colorscheme.colors.green },
   ["@variable.parameter"] = { fg = colorscheme.theme.base0C },
   DiagnosticVirtualTextError = { bg = "#570f0e", fg = colorscheme.colors.red },
-  DiagnosticVirtualTextHint = { bg = "#103a3c", fg = colorscheme.colors.purple },
+  DiagnosticVirtualTextHint = { bg = "#103a3c", fg = colorscheme.colors.bg_pmenu },
   DiagnosticVirtualTextInfo = { bg = "#0f3856", fg = colorscheme.colors.blue },
   DiagnosticVirtualTextWarn = { bg = "#332700", fg = colorscheme.colors.yellow },
-  IncSearch = { fg = colorscheme.theme.base0C, bg = "none", standout = true },
+  IncSearch = { bg = "none", standout = true, fg = colorscheme.theme.base0C },
   Include = { fg = colorscheme.colors.green },
   Tag = { fg = colorscheme.colors.green },
 }

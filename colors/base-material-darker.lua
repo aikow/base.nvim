@@ -71,7 +71,7 @@ colorscheme.polish = {
   ["@lsp.type.class"] = { fg = colorscheme.colors.yellow },
   ["@lsp.type.enum"] = { link = "@lsp.type.class" },
   ["@lsp.type.enumMember"] = { link = "@lsp.type.property" },
-  ["@lsp.type.interface"] = { fg = colorscheme.colors.green, italic = true },
+  ["@lsp.type.interface"] = { italic = true, fg = colorscheme.colors.green },
   ["@lsp.type.method"] = { fg = colorscheme.colors.blue },
   ["@lsp.type.modifier"] = { fg = colorscheme.colors.purple },
   ["@lsp.type.namespace"] = { link = "@lsp.type.class" },

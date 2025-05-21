@@ -56,9 +56,9 @@ colorscheme.colors = {
 }
 
 colorscheme.polish = {
-  ["@type.builtin"] = { fg = colorscheme.colors.light_green, bold = true },
-  ["@variable.parameter"] = { fg = colorscheme.colors.purple },
-  Type = { fg = colorscheme.colors.light_green },
+  ["@type.builtin"] = { bold = true, fg = colorscheme.colors.teal },
+  ["@variable.parameter"] = { fg = colorscheme.colors.bg_pmenu },
+  Type = { fg = colorscheme.colors.teal },
 }
 
 colorscheme:paint()

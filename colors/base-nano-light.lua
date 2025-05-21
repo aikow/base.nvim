@@ -74,7 +74,7 @@ colorscheme.polish = {
   ["@symbol"] = { fg = "#673AB7" },
   ["@variable.parameter"] = { fg = "#37474F" },
   NvDashAscii = { bg = "#673AB7" },
-  TelescopeMatching = { fg = "#673AB7", bg = colorscheme.colors.bg_3 },
+  TelescopeMatching = { bg = colorscheme.colors.bg_light, fg = "#673AB7" },
 }
 
 colorscheme:paint()

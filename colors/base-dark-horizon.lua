@@ -64,7 +64,7 @@ colorscheme.polish = {
   ["@punctuation.bracket"] = { fg = colorscheme.colors.yellow },
   ["@punctuation.delimiter"] = { fg = colorscheme.colors.yellow },
   ["@tag.delimiter"] = { fg = colorscheme.theme.base05 },
-  Include = { fg = "#6BE4E6", bold = true },
+  Include = { bold = true, fg = "#6BE4E6" },
 }
 
 colorscheme:paint()

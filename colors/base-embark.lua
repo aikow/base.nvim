@@ -1,0 +1,70 @@
+local colorscheme = require("base.theme").Theme({
+  name = "base-embark",
+  background = "dark",
+})
+
+colorscheme.theme = {
+  base00 = "#1e1c31",
+  base01 = "#282643",
+  base02 = "#2d2b40",
+  base03 = "#3e3859",
+  base04 = "#585273",
+  base05 = "#cbe3e7",
+  base06 = "#cbe3e7",
+  base07 = "#ffffff",
+  base08 = "#a1efd3",
+  base09 = "#d4bfff",
+  base0A = "#a1efd3",
+  base0B = "#ffe9aa",
+  base0C = "#aaffe4",
+  base0D = "#91ddff",
+  base0E = "#a1efd3",
+  base0F = "#ffb378",
+}
+
+colorscheme.colors = {
+  bg_1 = "#23213a",
+  bg_2 = "#282643",
+  bg_3 = "#2d2b4c",
+  bg_4 = "#37355e",
+  bg_folder = "#78a8ff",
+  bg_light = "#2d2b40",
+  bg_pmenu = "#a1efd3",
+  bg_statusline = "#23213a",
+  black = "#1e1c31",
+  blue = "#91ddff",
+  cyan = "#aaffe4",
+  dark_black = "#181627",
+  dark_purple = "#a87ffc",
+  green = "#a1efd3",
+  grey = "#413f70",
+  light_green = "#62d196",
+  light_grey_1 = "#4b4982",
+  light_grey_2 = "#504e8b",
+  light_grey_3 = "#555394",
+  light_pink = "#ff5458",
+  line = "#2d2b4c",
+  nord_blue = "#78a8ff",
+  orange = "#ffb378",
+  pink = "#d4bfff",
+  purple = "#d4bfff",
+  red = "#f48fb1",
+  sun = "#ffe9aa",
+  teal = "#aaffe4",
+  white = "#cbe3e7",
+  yellow = "#ffb378",
+}
+
+colorscheme.polish = {
+  ["@function"] = { fg = colorscheme.colors.red },
+  ["@function.macro"] = { fg = colorscheme.colors.red },
+  ["@keyword.directive"] = { fg = colorscheme.colors.green },
+  ["@operator"] = { fg = colorscheme.colors.cyan },
+  ["@punctuation.bracket"] = { fg = colorscheme.colors.cyan },
+  ["@tag.attribute"] = { fg = colorscheme.colors.pink },
+  Function = { fg = colorscheme.colors.red },
+  Include = { fg = colorscheme.colors.green },
+  Type = { fg = colorscheme.colors.pink },
+}
+
+colorscheme:paint()

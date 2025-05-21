@@ -1,0 +1,58 @@
+local colorscheme = require("base.theme").Theme({
+  name = "base-vesper",
+  background = "dark",
+})
+
+colorscheme.theme = {
+  base00 = "#101010",
+  base01 = "#1c1c1c",
+  base02 = "#232323",
+  base03 = "#595959",
+  base04 = "#a0a0a0",
+  base05 = "#ffffff",
+  base06 = "#ffffff",
+  base07 = "#ffffff",
+  base08 = "#ffc799",
+  base09 = "#ffc799",
+  base0A = "#fbadff",
+  base0B = "#99ffe4",
+  base0C = "#838383",
+  base0D = "#ffc799",
+  base0E = "#fbadff",
+  base0F = "#ff8080",
+}
+
+colorscheme.colors = {
+  bg_1 = "#1c1c1c",
+  bg_2 = "#232323",
+  bg_3 = "#282828",
+  bg_4 = "#343434",
+  bg_folder = "#ffc799",
+  bg_light = "#282828",
+  bg_pmenu = "#ffc799",
+  bg_statusline = "#1c1c1c",
+  black = "#101010",
+  blue = "#ffc799",
+  cyan = "#99ffe4",
+  dark_black = "#0a0a0a",
+  dark_purple = "#fbadff",
+  green = "#99ffe4",
+  grey = "#505050",
+  light_green = "#99ffe4",
+  light_grey_1 = "#595959",
+  light_grey_2 = "#6e6e6e",
+  light_grey_3 = "#7e7e7e",
+  light_pink = "#ffc799",
+  line = "#282828",
+  nord_blue = "#ffc799",
+  orange = "#ffc799",
+  pink = "#fbadff",
+  purple = "#fbadff",
+  red = "#ff8080",
+  sun = "#ffcfa8",
+  teal = "#99ffe4",
+  white = "#ffffff",
+  yellow = "#ffc799",
+}
+
+colorscheme:paint()

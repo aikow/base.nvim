@@ -56,8 +56,8 @@ colorscheme.colors = {
 }
 
 colorscheme.polish = {
-  ["@keyword.import"] = { fg = colorscheme.colors.purple },
-  ["@punctuation.bracket"] = { fg = colorscheme.colors.purple },
+  ["@keyword.import"] = { fg = colorscheme.colors.bg_pmenu },
+  ["@punctuation.bracket"] = { fg = colorscheme.colors.bg_pmenu },
   ["@punctuation.delimiter"] = { fg = "#DCD7BA" },
   ["@tag.delimiter"] = { fg = colorscheme.colors.red },
   ["@uri"] = { fg = "#7FB4CA" },

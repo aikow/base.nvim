@@ -27,7 +27,7 @@ colorscheme.colors = {
   bg_2 = "#ebe8dd",
   bg_3 = "#d6d4ca",
   bg_4 = "#c7c5bb",
-  bg_folder = "#94928b",
+  bg_folder = "#6f6e69",
   bg_light = "#ebe8dd",
   bg_pmenu = "#3aa99f",
   bg_statusline = "#f7f4e9",
@@ -67,7 +67,7 @@ colorscheme.polish = {
   Include = { fg = "#AD8301" },
   Keyword = { fg = "#24837B" },
   Tag = { fg = "#205EA6" },
-  TelescopeMatching = { fg = "#5E409D", bg = colorscheme.colors.bg_2 },
+  TelescopeMatching = { bg = colorscheme.colors.bg_light, fg = "#5E409D" },
 }
 
 colorscheme:paint()

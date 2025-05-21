@@ -1,0 +1,58 @@
+local colorscheme = require("base.theme").Theme({
+  name = "base-default-dark",
+  background = "dark",
+})
+
+colorscheme.theme = {
+  base00 = "#181818",
+  base01 = "#282828",
+  base02 = "#383838",
+  base03 = "#585858",
+  base04 = "#b8b8b8",
+  base05 = "#d8d8d8",
+  base06 = "#e8e8e8",
+  base07 = "#f8f8f8",
+  base08 = "#ab4642",
+  base09 = "#dc9656",
+  base0A = "#f7ca88",
+  base0B = "#a1b56c",
+  base0C = "#86c1b9",
+  base0D = "#7cafc2",
+  base0E = "#ba8baf",
+  base0F = "#a16946",
+}
+
+colorscheme.colors = {
+  bg_1 = "#262626",
+  bg_2 = "#2d2d2d",
+  bg_3 = "#343434",
+  bg_4 = "#3b3b3b",
+  bg_folder = "#7cafc2",
+  bg_light = "#2f2f2f",
+  bg_pmenu = "#d59593",
+  bg_statusline = "#212121",
+  black = "#181818",
+  blue = "#7cafc2",
+  cyan = "#86c1b9",
+  dark_black = "#101010",
+  dark_purple = "#a86c9a",
+  green = "#a1b56c",
+  grey = "#494949",
+  light_green = "#abcb56",
+  light_grey_1 = "#575757",
+  light_grey_2 = "#5e5e5e",
+  light_grey_3 = "#656565",
+  light_pink = "#d59593",
+  line = "#3b3b3b",
+  nord_blue = "#609eb5",
+  orange = "#a16946",
+  pink = "#e1b2b0",
+  purple = "#ba8baf",
+  red = "#ab4642",
+  sun = "#f8ce92",
+  teal = "#6cb598",
+  white = "#f8f8f8",
+  yellow = "#f7ca88",
+}
+
+colorscheme:paint()

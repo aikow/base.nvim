@@ -58,7 +58,7 @@ colorscheme.colors = {
 colorscheme.polish = {
   ["@keyword"] = { fg = colorscheme.colors.teal },
   ["@operator"] = { fg = colorscheme.colors.dark_purple },
-  ["@variable.member.key"] = { fg = colorscheme.theme.base05 },
+  ["@variable.member.key"] = { fg = colorscheme.theme.base0F },
   ["@variable.parameter"] = { fg = colorscheme.colors.teal },
 }
 

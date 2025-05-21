@@ -63,8 +63,8 @@ colorscheme.polish = {
   ["@function.builtin"] = { fg = colorscheme.colors.teal },
   ["@punctuation.bracket"] = { fg = colorscheme.extra.coal },
   ["@variable.member"] = { fg = colorscheme.extra.coal },
-  ["@variable.member.key"] = { fg = colorscheme.colors.red },
-  Constant = { fg = colorscheme.colors.red },
+  ["@variable.member.key"] = { fg = colorscheme.colors.pink },
+  Constant = { fg = colorscheme.colors.pink },
   Include = { fg = colorscheme.colors.dark_purple },
 }
 
