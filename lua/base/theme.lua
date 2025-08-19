@@ -22,7 +22,7 @@ M.Color = {}
 ---@param color table
 ---@return any
 function M.Color:new(color)
-  vim.validate({ color = { color, "table" } })
+  vim.validate("color", color, "table")
 
   return setmetatable(color, {
     __index = self,
@@ -60,7 +60,7 @@ M.ThemePalette = {}
 ---@param palette Base46ThemePalette
 ---@return any
 function M.ThemePalette:new(palette)
-  vim.validate({ palette = { palette, "table" } })
+  vim.validate("palette", palette, "table")
 
   return setmetatable(palette, {
     __index = self,
@@ -112,7 +112,7 @@ M.ThemeColors = {}
 ---@param colors Base46ThemeColors
 ---@return any
 function M.ThemeColors:new(colors)
-  vim.validate({ colors = { colors, "table" } })
+  vim.validate("colors", colors, "table")
 
   return setmetatable(colors, {
     __index = self,
@@ -142,10 +142,10 @@ M.Theme = {}
 ---@param theme { name: string, background: Base46Background }
 ---@return Base46Theme
 function M.Theme:new(theme)
-  vim.validate({ theme = { theme, "table" } })
+  vim.validate("theme", theme, "table")
   vim.validate({
-    name = { theme.name, "string" },
-    background = { theme.background, "string" },
+    ["theme.name"] = { theme.name, "string" },
+    ["theme.background"] = { theme.background, "string" },
   })
 
   return setmetatable(theme, { __index = self })

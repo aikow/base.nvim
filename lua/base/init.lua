@@ -65,20 +65,13 @@ H.default_config = {
 ---@param config Base46Config
 ---@return Base46ValidatedConfig
 function H.setup_config(config)
-  vim.validate({
-    config = { config, "table", true },
-  })
+  vim.validate("config", config, "table", true)
 
   -- Merge the default config with the passed config.
   local validated = vim.tbl_deep_extend("force", vim.deepcopy(H.default_config), config or {})
 
-  vim.validate({
-    integrations = {
-      validated.integrations,
-      function(t) return t == nil or vim.islist(t) end,
-      "expected a list",
-    },
-  })
+  local nil_or_list = function(t) return t == nil or vim.islist(t) end
+  vim.validate("integrations", validated.integrations, nil_or_list, "nil or list")
 
   return validated
 end
