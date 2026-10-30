@@ -3,7 +3,7 @@ local M = {}
 ---comment
 ---@param theme Base46ThemePalette
 ---@param colors Base46ThemeColors
-M.after = function(theme, colors)
+M.after = function(_, colors)
   local theme = {
     normal = {
       a = { bg = colors.nord_blue, fg = colors.black, gui = "bold" },
