@@ -5,7 +5,7 @@ local H = {}
 ---@field integrations string[] | nil List of integrations to load.
 
 ---@class Base46ValidatedConfig
----@field integrations string[] List of integrations to load.
+---@field integrations Base46IntegrationConfigSpec[] List of integrations to load.
 
 ---@alias Base46IntegrationHighlights fun(theme: Base46ThemePalette, colors: Base46ThemeColors): table<string, Base46Color>
 ---@alias Base46IntegrationAfter fun(theme: Base46ThemePalette, colors: Base46ThemeColors): nil
