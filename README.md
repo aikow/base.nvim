@@ -39,7 +39,7 @@ the default pickers to list all colorschemes as well.
 The default config is equivalent to the following:
 
 ```lua
-require("base.nvim").setup({
+require("base").setup({
   integrations = {
     "builtin.defaults",
     "builtin.git",
@@ -113,7 +113,7 @@ Instead of creating an extra file, you can also pass the table containing the
 `highlights` and `after` functions to the `integrations` list directly.
 
 ```lua
-require("base.nvim").setup({
+require("base").setup({
   integrations = {
     -- Other integrations...
      {
