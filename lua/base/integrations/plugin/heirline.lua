@@ -37,8 +37,8 @@ M.after = function(theme, colors)
     diag_hint = colors.purple,
     diag_info = colors.green,
     git_del = colors.red,
-    git_add = colors.blue,
-    git_change = colors.light_grey_3,
+    git_add = colors.green,
+    git_change = colors.yellow,
   })
 end
 
