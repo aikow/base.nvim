@@ -5,7 +5,7 @@ local H = {}
 ---@field integrations string[] | nil List of integrations to load.
 
 ---@class Base46ValidatedConfig
----@field integrations string[] List of integrations to load.
+---@field integrations Base46IntegrationConfigSpec[] List of integrations to load.
 
 ---@alias Base46IntegrationHighlights fun(theme: Base46ThemePalette, colors: Base46ThemeColors): table<string, Base46Color>
 ---@alias Base46IntegrationAfter fun(theme: Base46ThemePalette, colors: Base46ThemeColors): nil
@@ -44,6 +44,7 @@ H.default_config = {
     "builtin.git",
     "builtin.lsp",
     "builtin.semantic",
+    "builtin.statusline",
     "builtin.syntax",
     "builtin.terminal",
     "builtin.treesitter",
@@ -58,6 +59,7 @@ H.default_config = {
     "plugin.neorg",
     "plugin.telescope",
     "plugin.trouble",
+    "extra.colors",
   },
 }
 
@@ -67,8 +69,11 @@ H.default_config = {
 function H.setup_config(config)
   vim.validate("config", config, "table", true)
 
-  -- Merge the default config with the passed config.
+  -- Merge the default config with the passed config. Lists are replaced
+  -- wholesale rather than merged index-wise, so a custom integrations list
+  -- fully replaces the default one.
   local validated = vim.tbl_deep_extend("force", vim.deepcopy(H.default_config), config or {})
+  if config and vim.islist(config.integrations) then validated.integrations = config.integrations end
 
   local nil_or_list = function(t) return t == nil or vim.islist(t) end
   vim.validate("integrations", validated.integrations, nil_or_list, "nil or list")
@@ -101,10 +106,12 @@ end
 ---@param mod table
 ---@return Base46IntegrationSpec
 function H.validate_integration(mod)
-  -- Set default values for both functions
-  mod.highlights = mod.highlights or function() return {} end
-  mod.after = mod.after or function() end
-  return mod
+  -- Set default values for both functions on a copy, so a required module
+  -- table is not mutated in place.
+  local validated = vim.deepcopy(mod)
+  validated.highlights = mod.highlights or function() return {} end
+  validated.after = mod.after or function() end
+  return validated
 end
 
 ---Load an integration from a module.
@@ -131,6 +138,11 @@ function H.resolve_integrations(integrations)
       if mod then table.insert(loaded_integrations, mod) end
     elseif type(integration) == "table" then
       table.insert(loaded_integrations, H.validate_integration(integration))
+    else
+      vim.notify(
+        "base: ignoring integration of unsupported type " .. type(integration),
+        vim.log.levels.WARN
+      )
     end
   end
 
