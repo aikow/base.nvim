@@ -138,6 +138,11 @@ function H.resolve_integrations(integrations)
       if mod then table.insert(loaded_integrations, mod) end
     elseif type(integration) == "table" then
       table.insert(loaded_integrations, H.validate_integration(integration))
+    else
+      vim.notify(
+        "base: ignoring integration of unsupported type " .. type(integration),
+        vim.log.levels.WARN
+      )
     end
   end
 
