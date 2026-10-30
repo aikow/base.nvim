@@ -108,10 +108,12 @@ end
 ---@param mod table
 ---@return Base46IntegrationSpec
 function H.validate_integration(mod)
-  -- Set default values for both functions
-  mod.highlights = mod.highlights or function() return {} end
-  mod.after = mod.after or function() end
-  return mod
+  -- Set default values for both functions on a copy, so a required module
+  -- table is not mutated in place.
+  local validated = vim.deepcopy(mod)
+  validated.highlights = mod.highlights or function() return {} end
+  validated.after = mod.after or function() end
+  return validated
 end
 
 ---Load an integration from a module.
