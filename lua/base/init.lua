@@ -61,6 +61,7 @@ H.default_config = {
     "plugin.neorg",
     "plugin.telescope",
     "plugin.trouble",
+    "extra.colors",
   },
 }
 

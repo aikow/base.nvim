@@ -62,6 +62,7 @@ require("base").setup({
     "plugin.neorg",
     "plugin.telescope",
     "plugin.trouble",
+    "extra.colors",
   },
 })
 ```
