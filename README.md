@@ -39,12 +39,13 @@ the default pickers to list all colorschemes as well.
 The default config is equivalent to the following:
 
 ```lua
-require("base.nvim").setup({
+require("base").setup({
   integrations = {
     "builtin.defaults",
     "builtin.git",
     "builtin.lsp",
     "builtin.semantic",
+    "builtin.statusline",
     "builtin.syntax",
     "builtin.terminal",
     "builtin.treesitter",
@@ -59,6 +60,7 @@ require("base.nvim").setup({
     "plugin.neorg",
     "plugin.telescope",
     "plugin.trouble",
+    "extra.colors",
   },
 })
 ```
@@ -70,7 +72,7 @@ toggled individually by including or excluding the name in the list of
 `integrations`.
 
 The order integrations are loaded in is important, and if a later integration
-defines the same highlight group as a previous one, the older one will override
+defines the same highlight group as a previous one, the later one will override
 any previous values. This is especially important if you want to tweak one of
 the default integrations.
 
@@ -113,7 +115,7 @@ Instead of creating an extra file, you can also pass the table containing the
 `highlights` and `after` functions to the `integrations` list directly.
 
 ```lua
-require("base.nvim").setup({
+require("base").setup({
   integrations = {
     -- Other integrations...
      {

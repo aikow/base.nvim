@@ -143,6 +143,7 @@ M.Theme = {}
 ---@return Base46Theme
 function M.Theme:new(theme)
   vim.validate("theme", theme, "table")
+  theme.background = theme.background or "dark"
   vim.validate({
     ["theme.name"] = { theme.name, "string" },
     ["theme.background"] = { theme.background, "string" },

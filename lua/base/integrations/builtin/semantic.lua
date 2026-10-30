@@ -19,7 +19,7 @@ M.highlights = function(theme, colors)
     ["@lsp.type.property"] = { link = "@property" },
     ["@lsp.type.struct"] = { link = "Structure" },
     ["@lsp.type.type"] = { link = "@type" },
-    ["@lsp.type.typeParamater"] = { link = "TypeDef" },
+    ["@lsp.type.typeParameter"] = { link = "TypeDef" },
     ["@lsp.type.variable"] = { link = "@variable" },
     ["@event"] = { fg = theme.base08 },
     ["@modifier"] = { fg = theme.base08 },
