@@ -70,7 +70,7 @@ toggled individually by including or excluding the name in the list of
 `integrations`.
 
 The order integrations are loaded in is important, and if a later integration
-defines the same highlight group as a previous one, the older one will override
+defines the same highlight group as a previous one, the later one will override
 any previous values. This is especially important if you want to tweak one of
 the default integrations.
 
