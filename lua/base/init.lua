@@ -67,8 +67,11 @@ H.default_config = {
 function H.setup_config(config)
   vim.validate("config", config, "table", true)
 
-  -- Merge the default config with the passed config.
+  -- Merge the default config with the passed config. Lists are replaced
+  -- wholesale rather than merged index-wise, so a custom integrations list
+  -- fully replaces the default one.
   local validated = vim.tbl_deep_extend("force", vim.deepcopy(H.default_config), config or {})
+  if config and vim.islist(config.integrations) then validated.integrations = config.integrations end
 
   local nil_or_list = function(t) return t == nil or vim.islist(t) end
   vim.validate("integrations", validated.integrations, nil_or_list, "nil or list")
