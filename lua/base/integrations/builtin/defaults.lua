@@ -50,7 +50,7 @@ M.highlights = function(theme, colors)
     Substitute = { fg = theme.base01, bg = theme.base0A, sp = "none" },
     Title = { fg = theme.base0D, sp = "none" },
     TooLong = { fg = theme.base08 },
-    UnderLined = { fg = theme.base0B, underline = true },
+    Underlined = { fg = theme.base0B, underline = true },
     Visual = { bg = theme.base02 },
     VisualNOS = { fg = theme.base08 },
     WarningMsg = { fg = theme.base08 },
