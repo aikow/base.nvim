@@ -161,6 +161,12 @@ M.highlights = function(_, colors)
     MiniStarterSection = { fg = colors.dark_purple },
     -- MiniStarterQuery = {},
 
+    -- mini.statuscolumn
+    MiniStatuscolumnDim = { fg = colors.grey, bg = colors.bg_2 },
+    MiniStatuscolumnDimCursor = { link = "MiniStatuscolumnDim" },
+    MiniStatuscolumnSep = { link = "LineNr" },
+    MiniStatuscolumnSepCursor = { link = "CursorLineNr" },
+
     -- mini.statusline
     MiniStatuslineModeNormal = { bg = colors.nord_blue, fg = colors.black, bold = true },
     MiniStatuslineModeInsert = { bg = colors.dark_purple, fg = colors.black, bold = true },
