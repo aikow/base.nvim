@@ -76,6 +76,28 @@ defines the same highlight group as a previous one, the later one will override
 any previous values. This is especially important if you want to tweak one of
 the default integrations.
 
+#### Integration Options
+
+Any integration that is loaded by name can also be given options by using a
+table with `name` and `opts` fields instead of a plain string. The `opts` table
+is passed as the third argument to the integration's `highlights` and `after`
+functions.
+
+```lua
+require("base").setup({
+  integrations = {
+    -- Other integrations...
+    { name = "builtin.terminal", opts = { background = false } },
+  },
+})
+```
+
+For example, `builtin.terminal` gives terminal buffers a slightly different
+background by default (the `dark_black` color, 6% darker than the main
+background, applied via `winhighlight`). Set `opts.background` to `false` to
+disable that, or to a hex color string (e.g. `"#1a1b26"`) to use a custom
+background color instead.
+
 #### Custom Integrations
 
 You can define your own custom integrations in one of two ways.
@@ -88,9 +110,10 @@ In your runtimepath, you can create a file under
 ```lua
 ---@param theme Base46ThemePalette
 ---@param colors Base46ThemeColors
+---@param opts Base46IntegrationOpts
 ---@return table<string, Base46Color>
 return {
-  highlights = function(theme, colors)
+  highlights = function(theme, colors, opts)
     return {
       -- mini.files
       MiniFilesBorder = { bg = colors.dark_black, fg = colors.grey },
@@ -100,7 +123,8 @@ return {
   end,
   ---@param theme Base46ThemePalette
   ---@param colors Base46ThemeColors
-  after = function(theme, colors)
+  ---@param opts Base46IntegrationOpts
+  after = function(theme, colors, opts)
     -- Do something with the colors here, no return value is expected.
   end,
 }
@@ -119,7 +143,7 @@ require("base").setup({
   integrations = {
     -- Other integrations...
      {
-      highlights = function(theme, colors)
+      highlights = function(theme, colors, opts)
         return {
           -- mini.files
           MiniFilesBorder = { bg = colors.dark_black, fg = colors.grey },
@@ -129,7 +153,8 @@ require("base").setup({
       end,
       ---@param theme Base46ThemePalette
       ---@param colors Base46ThemeColors
-      after = function(theme, colors)
+      ---@param opts Base46IntegrationOpts
+      after = function(theme, colors, opts)
         -- Do something with the colors here, no return value is expected.
       end,
     },

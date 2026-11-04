@@ -2,17 +2,20 @@ local Base46 = {}
 local H = {}
 
 ---@class Base46Config
----@field integrations string[] | nil List of integrations to load.
+---@field integrations Base46IntegrationConfigSpec[] | nil List of integrations to load.
 
 ---@class Base46ValidatedConfig
 ---@field integrations Base46IntegrationConfigSpec[] List of integrations to load.
 
----@alias Base46IntegrationHighlights fun(theme: Base46ThemePalette, colors: Base46ThemeColors): table<string, Base46Color>
----@alias Base46IntegrationAfter fun(theme: Base46ThemePalette, colors: Base46ThemeColors): nil
----@alias Base46IntegrationSpec { highlights: Base46IntegrationHighlights, after: Base46IntegrationAfter}
+---@alias Base46IntegrationOpts table<string, any> Options passed to a specific integration.
+
+---@alias Base46IntegrationHighlights fun(theme: Base46ThemePalette, colors: Base46ThemeColors, opts: Base46IntegrationOpts): table<string, Base46Color>
+---@alias Base46IntegrationAfter fun(theme: Base46ThemePalette, colors: Base46ThemeColors, opts: Base46IntegrationOpts): nil
+---@alias Base46IntegrationSpec { highlights: Base46IntegrationHighlights, after: Base46IntegrationAfter, opts: Base46IntegrationOpts? }
 ---@alias Base46IntegrationConfigSpec
 ---| string  # Name of a module to load from the runtime path.
----| Base46IntegrationConfigSpec  # A custom integration which can be loaded directly
+---| { name: string, opts: Base46IntegrationOpts? }  # Name of a module to load from the runtime path, plus options passed to it.
+---| Base46IntegrationSpec  # A custom integration which can be loaded directly
 
 -- ------------------------------------------------------------------------
 -- | Config and Setup
@@ -101,22 +104,24 @@ end
 -- ------------------------------------------------------------------------
 
 ---Validate a loaded integration table by making sure it has all required
----functions. To simplify downstream code, set the function to an empty dummy
----function in case no function was given.
+---functions and options. To simplify downstream code, set the function to an
+---empty dummy function in case no function was given.
 ---@param mod table
+---@param opts Base46IntegrationOpts | nil Options to pass through to the integration.
 ---@return Base46IntegrationSpec
-function H.validate_integration(mod)
+function H.validate_integration(mod, opts)
   -- Set default values for both functions on a copy, so a required module
   -- table is not mutated in place.
   local validated = vim.deepcopy(mod)
   validated.highlights = mod.highlights or function() return {} end
   validated.after = mod.after or function() end
+  validated.opts = opts or validated.opts or {}
   return validated
 end
 
 ---Load an integration from a module.
 ---@param integration_name string module name to load as integrations
----@return { highlights: function, after: function }?
+---@return Base46IntegrationSpec?
 function H.load_integration_from_module(integration_name)
   local ok, mod = pcall(require, H.modpath_prefix .. integration_name)
   if ok then
@@ -127,8 +132,8 @@ function H.load_integration_from_module(integration_name)
 end
 
 ---Resolve the list of integrations from the plugin config.
----@param integrations string[] list of module names to load as integrations
----@return { highlights: function, after: function }[]
+---@param integrations Base46IntegrationConfigSpec[] list of integrations to load
+---@return Base46IntegrationSpec[]
 function H.resolve_integrations(integrations)
   local loaded_integrations = {}
 
@@ -137,7 +142,15 @@ function H.resolve_integrations(integrations)
       local mod = H.load_integration_from_module(integration)
       if mod then table.insert(loaded_integrations, mod) end
     elseif type(integration) == "table" then
-      table.insert(loaded_integrations, H.validate_integration(integration))
+      if type(integration.name) == "string" then
+        local mod = H.load_integration_from_module(integration.name)
+        if mod then
+          mod.opts = integration.opts or {}
+          table.insert(loaded_integrations, mod)
+        end
+      else
+        table.insert(loaded_integrations, H.validate_integration(integration))
+      end
     else
       vim.notify(
         "base: ignoring integration of unsupported type " .. type(integration),
@@ -168,7 +181,7 @@ function Base46.paint(colorscheme)
   -- Load all integrations
   for _, mod in ipairs(integrations) do
     highlights =
-      vim.tbl_extend("force", highlights, mod.highlights(colorscheme.theme, colorscheme.colors))
+      vim.tbl_extend("force", highlights, mod.highlights(colorscheme.theme, colorscheme.colors, mod.opts))
   end
 
   -- Apply the polish if the color scheme has any.
@@ -181,7 +194,7 @@ function Base46.paint(colorscheme)
 
   -- Load all other integrations
   for _, mod in ipairs(integrations) do
-    mod.after(colorscheme.theme, colorscheme.colors)
+    mod.after(colorscheme.theme, colorscheme.colors, mod.opts)
   end
 end
 
