@@ -3,7 +3,7 @@ local M = {}
 ---comment
 ---@param colors Base46ThemeColors
 ---@return table<string, Base46Color>
-M.highlights = function(_, colors)
+M.highlights = function(theme, colors)
   return {
     MasonHeader = { bg = colors.red, fg = colors.black },
     MasonHighlight = { fg = colors.blue },
@@ -11,7 +11,7 @@ M.highlights = function(_, colors)
     MasonHighlightBlockBold = { link = "MasonHighlightBlock" },
     MasonHeaderSecondary = { link = "MasonHighlightBlock" },
     MasonMuted = { fg = colors.light_grey_3 },
-    MasonMutedBlock = { fg = colors.light_grey_3, bg = colors.bg_2 },
+    MasonMutedBlock = { fg = theme.base05, bg = colors.bg_2 },
   }
 end
 

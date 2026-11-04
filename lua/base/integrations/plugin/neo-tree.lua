@@ -7,7 +7,7 @@ M.highlights = function(_, colors)
   return {
     NeoTreeNormal = { bg = colors.dark_black },
     NeoTreeNormalNC = { bg = colors.dark_black },
-    NeoTreeWinSeparator = { fg = colors.dark_black, bg = colors.dark_black },
+    NeoTreeWinSeparator = { link = "WinSeparator" },
     NeoTreeEndOfBuffer = { fg = colors.dark_black },
 
     NeoTreeCursorLine = { bg = colors.bg_1 },

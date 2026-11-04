@@ -10,7 +10,7 @@ M.highlights = function(theme, colors)
     CmpItemAbbr = { fg = colors.white },
     CmpItemAbbrMatch = { fg = colors.blue, bold = true },
     CmpDoc = { bg = colors.dark_black },
-    CmpDocBorder = { fg = colors.dark_black, bg = colors.dark_black },
+    CmpDocBorder = { link = "FloatBorder" },
     CmpPmenu = { bg = colors.black },
     CmpSel = { link = "PmenuSel", bold = true },
 

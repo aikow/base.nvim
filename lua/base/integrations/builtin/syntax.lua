@@ -3,7 +3,7 @@ local M = {}
 ---comment
 ---@param theme Base46ThemePalette
 ---@return table<string, Base46Color>
-M.highlights = function(theme)
+M.highlights = function(theme, colors)
   -- Standard syntax highlighting
 
   return {
@@ -31,7 +31,7 @@ M.highlights = function(theme)
     String = { fg = theme.base0B },
     Structure = { fg = theme.base0E },
     Tag = { fg = theme.base0A },
-    Todo = { fg = theme.base0A, bg = theme.base01 },
+    Todo = { fg = colors.black, bg = theme.base0A },
     Type = { fg = theme.base0A, sp = "none" },
     Typedef = { fg = theme.base0A },
   }

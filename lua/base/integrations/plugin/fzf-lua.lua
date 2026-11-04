@@ -7,24 +7,24 @@ local M = {}
 M.highlights = function(theme, colors)
   return {
     FzfLuaNormal = { bg = colors.dark_black },
-    FzfLuaBorder = { fg = colors.dark_black, bg = colors.dark_black },
+    FzfLuaBorder = { link = "FloatBorder" },
 
     FzfLuaSearchNormal = { fg = colors.white, bg = colors.bg_1 },
     FzfLuaTitle = { fg = colors.black, bg = colors.red },
 
     FzfLuaCursor = { bg = colors.dark_black, fg = colors.red },
-    FzfLuaCursorLine = { bg = colors.dark_black, fg = colors.dark_black },
-    FzfLuaCursorLineNr = { bg = colors.dark_black, fg = colors.dark_black },
+    FzfLuaCursorLine = { bg = colors.dark_black, fg = colors.white },
+    FzfLuaCursorLineNr = { bg = colors.dark_black, fg = colors.white },
 
     FzfLuaHelpNormal = { bg = colors.dark_black },
-    FzfLuaHelpBorder = { fg = colors.dark_black, bg = colors.dark_black },
-    FzfLuaHelpTitle = { fg = colors.dark_black, bg = colors.green },
+    FzfLuaHelpBorder = { link = "FloatBorder" },
+    FzfLuaHelpTitle = { fg = colors.black, bg = colors.green },
 
-    FzfLuaScrollBorderFull = { fg = colors.dark_black, bg = colors.dark_black },
-    FzfLuaScrollBorderEmpty = { fg = colors.dark_black, bg = colors.dark_black },
+    FzfLuaScrollBorderFull = { link = "FloatBorder" },
+    FzfLuaScrollBorderEmpty = { link = "FloatBorder" },
 
-    FzfLuaScrollFloatFull = { fg = colors.dark_black, bg = colors.dark_black },
-    FzfLuaScrollFloatEmpty = { fg = colors.dark_black, bg = colors.dark_black },
+    FzfLuaScrollFloatFull = { link = "FloatBorder" },
+    FzfLuaScrollFloatEmpty = { link = "FloatBorder" },
 
     -- FzfLuaHelpNormal = { bg = colors.dark_black },
     -- FzfLuaHelpBorder = { fg = colors.dark_black, bg = colors.dark_black, },
