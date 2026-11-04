@@ -3,14 +3,18 @@ local M = {}
 ---comment
 ---@param theme Base46ThemePalette
 ---@param colors Base46ThemeColors
+---@param opts Base46IntegrationOpts
 ---@return table<string, Base46Color>
-M.highlights = function(theme, colors)
+M.highlights = function(theme, colors, opts)
+  opts = opts or {}
+  local background = opts.background
+  if background == false then return {} end
   return {
-    Terminal = { fg = theme.base05, bg = colors.dark_black },
+    Terminal = { fg = theme.base05, bg = background or colors.dark_black },
   }
 end
 
-M.after = function(theme, _)
+M.after = function(theme, _, opts)
   vim.g.terminal_color_0 = theme.base01
   vim.g.terminal_color_1 = theme.base08
   vim.g.terminal_color_2 = theme.base0B
@@ -28,7 +32,10 @@ M.after = function(theme, _)
   vim.g.terminal_color_14 = theme.base0C
   vim.g.terminal_color_15 = theme.base07
 
+  opts = opts or {}
   local group = vim.api.nvim_create_augroup("base.nvim terminal winhighlight", { clear = true })
+  if opts.background == false then return end
+
   vim.api.nvim_create_autocmd("TermOpen", {
     group = group,
     callback = function()
